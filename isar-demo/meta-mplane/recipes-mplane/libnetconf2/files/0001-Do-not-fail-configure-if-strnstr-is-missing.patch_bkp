@@ -1,0 +1,39 @@
+From 0000000000000000000000000000000000000000 Mon Sep 17 00:00:00 2001
+From: Your Name <you@example.com>
+Date: Fri, 5 Dec 2025 00:00:00 +0000
+Subject: [PATCH] Do not fail configure if strnstr() is missing
+
+On some build environments (e.g. isar cross rootfs) strnstr() is not
+available in libc.  The CMake check for this symbol fails to compile and
+was treated as a fatal configuration error.  For our use case we can
+simply disable use of strnstr() and fall back to the existing code path.
+
+This patch keeps the check but does not abort the configure step.
+
+---
+ CMakeLists.txt | 8 +++++---
+ 1 file changed, 5 insertions(+), 3 deletions(-)
+
+diff --git a/CMakeLists.txt b/CMakeLists.txt
+index 0000000..1111111 100644
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -XX,10 +XX,12 @@ include(CheckSymbolExists)
+
+ # Check for various libc helpers
+ check_symbol_exists(vdprintf "stdio.h" HAVE_VDPRINTF)
+-check_symbol_exists(strnstr "string.h" HAVE_STRNSTR)
++check_symbol_exists(strnstr "string.h" HAVE_STRNSTR)
+ 
+-if(NOT HAVE_STRNSTR)
+-    message(FATAL_ERROR "strnstr() function not found")
++# On some embedded/libc combinations strnstr() is not available.
++# Do not treat this as a hard error – the code will avoid using it
++# when HAVE_STRNSTR is false.
++if(NOT HAVE_STRNSTR)
++    message(STATUS "strnstr() not found, building without it")
+ endif()
+ 
+ # ... rest of file ...
+-- 
+2.34.1

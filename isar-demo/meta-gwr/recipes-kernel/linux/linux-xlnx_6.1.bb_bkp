@@ -1,0 +1,24 @@
+SUMMARY = "Xilinx Linux Kernel 6.1 LTS"
+DESCRIPTION = "Xilinx Linux Kernel using ISAR kernel build system"
+LICENSE = "GPLv2"
+LIC_FILES_CHKSUM = "file://COPYING;md5=6bc538ed5bd9a7fcf63f0d8a48c9b7aa"
+
+# This is the correct ISAR kernel machinery
+inherit recipes-kernel/linux-custom.inc 
+
+# Xilinx kernel source
+SRC_URI = "git://github.com/Xilinx/linux-xlnx.git;branch=xlnx_rebase_v6.1_LTS_2023.1_update;protocol=https"
+SRCREV = "716921b6d7dc9db49660369428fb61ca96947ccb"
+
+# Kernel version
+PV = "6.1+xlnx"
+S = "${WORKDIR}/git"
+
+# Use Xilinx default config
+KERNEL_DEFCONFIG = "xilinx_zynqmp_defconfig"
+
+# Use Image instead of vmlinuz
+KERNEL_FILE = "Image"
+
+# Optional: specific DTBs
+#KERNEL_DTB = "xilinx/zynqmp-zcu102-rev1.0.dtb"

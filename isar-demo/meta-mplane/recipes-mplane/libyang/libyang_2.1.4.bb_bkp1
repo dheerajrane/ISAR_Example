@@ -1,0 +1,38 @@
+DESCRIPTION = "libyang2 - YANG parser"
+HOMEPAGE = "https://github.com/CESNET/libyang"
+LICENSE = "BSD-3-Clause"
+LIC_FILES_CHKSUM = "file://LICENSE;md5=fb391cabd4a9d3958ebf8a6c7a36b2e3"
+
+# Upstream repo
+SRC_URI = "git://github.com/CESNET/libyang.git;protocol=https"
+# Keep your pinned commit for v2.1.4
+SRCREV = "c7e6136c3226f0c6a95d598ff3ab69c8e89b9a40"
+
+# Unpacked git tree
+S = "${WORKDIR}/git"
+
+# Use dpkg-raw (we build + install into ${D}, then dpkg-raw makes a .deb)
+inherit dpkg-raw
+
+# Jammy runtime deps (these are target-side Debian packages)
+DEBIAN_DEPENDS = "libpcre2-8-0, libssl3, zlib1g"
+
+# Build directory
+B = "${WORKDIR}/build"
+
+do_configure() {
+    cmake -B ${B} -S ${S} \
+        -DCMAKE_BUILD_TYPE=Release \
+        -DCMAKE_INSTALL_PREFIX=/usr
+}
+
+do_compile() {
+    # Use make via CMake instead of ninja
+    cmake --build ${B} -- -j1
+}
+
+do_install() {
+    DESTDIR=${D} cmake --install ${B}
+}
+
+FILES:${PN} += "/usr"

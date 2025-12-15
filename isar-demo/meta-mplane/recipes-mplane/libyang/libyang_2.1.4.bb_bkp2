@@ -1,0 +1,37 @@
+DESCRIPTION = "libyang2 - YANG parser"
+HOMEPAGE = "https://github.com/CESNET/libyang"
+LICENSE = "BSD-3-Clause"
+LIC_FILES_CHKSUM = "file://LICENSE;md5=fb391cabd4a9d3958ebf8a6c7a36b2e3"
+
+SRC_URI = "git://github.com/CESNET/libyang.git;protocol=https;branch=master"
+SRCREV  = "c7e6136c3226f0c6a95d598ff3ab69c8e89b9a40"
+
+inherit dpkg-raw
+
+S = "${WORKDIR}/git"
+B = "${WORKDIR}/build"
+
+DEBIAN_DEPENDS = "libpcre2-8-0, libssl3, zlib1g"
+DEBIAN_BUILD_DEPENDS += "cmake, make, ninja-build, libpcre2-dev, libssl-dev, zlib1g-dev"
+
+do_configure() {
+    mkdir -p ${B}
+    cd ${B}
+
+    cmake ${S} \
+        -GNinja \
+        -DCMAKE_BUILD_TYPE=Release \
+        -DCMAKE_INSTALL_PREFIX=/usr
+}
+
+do_compile() {
+    cd ${B}
+    ninja
+}
+
+do_install() {
+    cd ${B}
+    DESTDIR=${D} ninja install
+}
+
+FILES:${PN} += "/usr"

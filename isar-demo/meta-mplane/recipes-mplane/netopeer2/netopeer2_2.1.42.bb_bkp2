@@ -1,0 +1,87 @@
+DESCRIPTION = "Netopeer2 NETCONF server"
+HOMEPAGE = "https://github.com/CESNET/netopeer2"
+LICENSE = "BSD-3-Clause"
+LIC_FILES_CHKSUM = "file://LICENSE;md5=8af869d5328f0c3929dea66c48f6a796"
+
+SRC_URI = "git://github.com/CESNET/netopeer2.git;protocol=https;branch=master"
+# Tag for v2.1.42
+SRCREV = "00ea22af3ff04b2a6978243ac485d8db18ec3b0c"
+
+S  = "${WORKDIR}/git"
+PV = "2.1.42"
+
+################################################################
+#  Debian-style build (same pattern as libyang / libnetconf2 / sysrepo)
+################################################################
+inherit dpkg
+
+################################################################
+# Build dependencies inside Debian schroot (generic tools only)
+################################################################
+DEBIAN_BUILD_DEPENDS += " \
+    cmake, ninja-build, pkg-config, \
+    libpcre2-dev, libssh-dev, \
+    libssl-dev, zlib1g-dev, libcmocka-dev \
+"
+
+################################################################
+# Runtime dependencies in the target rootfs
+# (use your ISAR-built stack)
+################################################################
+DEBIAN_DEPENDS = " \
+    libyang, libnetconf2, sysrepo, \
+    libssh-4, libssl3, zlib1g \
+"
+
+################################################################
+#  Prepare Debian packaging tree and patch debian/control + rules
+################################################################
+do_prepare_build[cleandirs] += "${S}/debian"
+
+do_prepare_build() {
+    # Generate basic Debian packaging (debian/control, rules, etc.)
+    deb_debianize
+
+    #
+    # 1) Remove Ubuntu dev packages (if present) from Build-Depends
+    #
+    sed -i -e 's/libcurl4-gnutls-dev//g' \
+           -e 's/libyang2-dev[^,]*//g' \
+           -e 's/libnetconf2-dev[^,]*//g' \
+           -e 's/libsysrepo-dev[^,]*//g' \
+           ${S}/debian/control || true
+
+    # Clean up double commas / extra spaces that may result
+    sed -i -e 's/,,/,/g' \
+           -e 's/, ,/,/g' \
+           -e 's/, *$//' \
+           ${S}/debian/control
+
+    #
+    # 2) Explicitly add your locally built packages (ARM64)
+    #    This *forces* sbuild to install libyang/libnetconf2/sysrepo
+    #    from the ISAR repo for arm64, not from Ubuntu amd64.
+    #
+    sed -i '/^Build-Depends:/ s/$/, libyang:arm64, libnetconf2:arm64, sysrepo:arm64/' \
+        ${S}/debian/control
+
+    #
+    # 3) Ensure all required build tools are present
+    #
+    sed -i '/^Build-Depends:/ s/$/, cmake, ninja-build, pkg-config, libpcre2-dev, libssh-dev, libssl-dev, zlib1g-dev, libcmocka-dev/' \
+        ${S}/debian/control
+
+    #
+    # 4) (Optional but helpful) explicitly point CMake to sysrepo
+    #    NOTE: CMake's FindSysrepo.cmake checks SYSREPO_LIBRARY and SYSREPO_INCLUDE_DIR.
+    #
+    sed -i '1a\
+export PKG_CONFIG_PATH=/usr/lib/aarch64-linux-gnu/pkgconfig\n\
+export DEB_CMAKE_EXTRA_FLAGS="-DSYSREPO_INCLUDE_DIR=/usr/include/sysrepo -DSYSREPO_LIBRARY=/usr/lib/aarch64-linux-gnu/libsysrepo.so -DINSTALL_MODULES=OFF"' \
+    ${S}/debian/rules
+}
+
+################################################################
+#  No manual do_configure / do_compile / do_install.
+#  dpkg-buildpackage (inside sbuild) handles everything.
+################################################################

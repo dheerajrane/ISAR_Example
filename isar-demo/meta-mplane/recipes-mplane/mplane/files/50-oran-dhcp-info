@@ -1,0 +1,42 @@
+#!/bin/sh
+
+LOG="/var/log/dhclient-hook.log"
+OUT="/etc/dhclient_lease_file.conf"
+
+# Make sure log dir exists
+mkdir -p /var/log
+
+# ---- DEBUG: dump environment from dhclient ----
+{
+  echo "======================================================"
+  echo "dhclient hook called at: $(date)"
+  echo "reason     = ${reason}"
+  echo "interface  = ${interface}"
+  echo "new_ip     = ${new_ip_address}"
+  echo "new_routers= ${new_routers}"
+  echo "new_dns    = ${new_domain_name_servers}"
+  echo "new_server = ${new_dhcp_server_identifier}"
+  echo "option43   = ${new_vendor_encapsulated_options}"
+  echo
+  echo "Full environment:"
+  env | sort
+  echo "------------------------------------------------------"
+} >> "$LOG" 2>&1
+# ---- end DEBUG section ----
+
+case "$reason" in
+  BOUND|RENEW|REBIND|REBOOT)
+    {
+      echo "interface       :       ${interface}"
+      echo "clientid        :       ${new_dhcp_client_identifier}"
+      echo "serverid        :       ${new_dhcp_server_identifier}"
+      echo "domain          :       ${new_domain_name}"
+      echo "DNS             :       ${new_domain_name_servers}"
+      echo "mtu             :       ${new_interface_mtu}"
+      echo "gateway         :       ${new_routers}"
+      echo "client-ipaddr   :       ${new_ip_address}"
+    } > "$OUT"
+    ;;
+esac
+
+exit 0

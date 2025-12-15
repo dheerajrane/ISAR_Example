@@ -1,0 +1,46 @@
+DESCRIPTION = "libnetconf2 - NETCONF protocol library"
+HOMEPAGE = "https://github.com/CESNET/libnetconf2"
+LICENSE = "BSD-3-Clause"
+LIC_FILES_CHKSUM = "file://LICENSE;md5=6f4b002e789e0dfbbfbb8e65d91f75f6"
+
+# libnetconf2 v2.1.25
+SRC_URI = "git://github.com/CESNET/libnetconf2.git;protocol=https;branch=master"
+SRCREV  = "74bf203f085d2c67d78d9647fe2abef9ce9ed4c8"
+
+# Unpacked git tree and separate build dir
+S = "${WORKDIR}/git"
+B = "${WORKDIR}/build"
+
+inherit dpkg-raw
+
+# Build-time toolchain dependencies inside the chroot
+DEBIAN_BUILD_DEPENDS += "cmake, ninja-build, pkg-config, libpcre2-dev, libssh-dev, libssl-dev, zlib1g-dev, libcurl4-gnutls-dev"
+
+# Runtime dependencies of the resulting .deb (adjust as needed)
+DEBIAN_DEPENDS = "libyang, libpcre2-8-0, libssh-4, libcurl3-gnutls, libssl3, zlib1g"
+
+# Ensure BitBake knows we need libyang built first
+DEPENDS += "libyang"
+
+# Clean build dir on reconfigure
+do_configure[cleandirs] += "${B}"
+
+do_configure() {
+    cmake -S ${S} -B ${B} \
+        -DCMAKE_BUILD_TYPE=Release \
+        -DCMAKE_INSTALL_PREFIX=/usr \
+        -DCMAKE_INSTALL_LIBDIR=lib/${DEB_TARGET_MULTIARCH} \
+        -DENABLE_SSH=ON \
+        -DENABLE_TLS=ON
+}
+
+do_compile() {
+    cmake --build ${B} -- -j$(nproc)
+}
+
+do_install() {
+    DESTDIR=${D} cmake --install ${B}
+}
+
+# Ship everything under /usr
+FILES:${PN} += "/usr"

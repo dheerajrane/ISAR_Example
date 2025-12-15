@@ -1,0 +1,31 @@
+DESCRIPTION = "libnetconf2 - NETCONF protocol library"
+HOMEPAGE = "https://github.com/CESNET/libnetconf2"
+LICENSE = "BSD-3-Clause"
+LIC_FILES_CHKSUM = "file://LICENSE;md5=6f4b002e789e0dfbbfbb8e65d91f75f6"
+
+# Upstream git, pinned to v2.1.25
+SRC_URI = "git://github.com/CESNET/libnetconf2.git;protocol=https;branch=master"
+
+# IMPORTANT: replace this with the SHA of tag v2.1.25
+# Get it on your host with:
+#   git ls-remote https://github.com/CESNET/libnetconf2.git v2.1.25
+# and paste the 40-char hash here.
+SRCREV = "74bf203f085d2c67d78d9647fe2abef9ce9ed4c8"
+
+# Unpacked tree
+S = "${WORKDIR}/git"
+
+# Build as Debian package using upstream CMake/debian rules
+inherit dpkg
+
+# Build-time deps inside the build chroot (Debian package names)
+DEBIAN_BUILD_DEPENDS += "cmake, ninja-build, libyang-dev, libssh-dev, libssl-dev, zlib1g-dev, libcurl4-gnutls-dev"
+
+# Runtime deps of the target .deb (Debian package names)
+DEBIAN_DEPENDS = "libyang, libssh-4, libssl3, zlib1g, libcurl4"
+
+# Make sure Debian packaging metadata is generated
+do_prepare_build[cleandirs] += "${S}/debian"
+do_prepare_build() {
+    deb_debianize
+}

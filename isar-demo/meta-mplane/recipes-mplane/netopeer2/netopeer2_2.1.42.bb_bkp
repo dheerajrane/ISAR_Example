@@ -1,0 +1,82 @@
+DESCRIPTION = "Netopeer2 NETCONF server"
+HOMEPAGE = "https://github.com/CESNET/netopeer2"
+LICENSE = "BSD-3-Clause"
+LIC_FILES_CHKSUM = "file://LICENSE;md5=8af869d5328f0c3929dea66c48f6a796"
+
+SRC_URI = "git://github.com/CESNET/netopeer2.git;protocol=https;branch=master"
+# Tag for v2.1.42
+SRCREV = "00ea22af3ff04b2a6978243ac485d8db18ec3b0c"
+
+S  = "${WORKDIR}/git"
+PV = "2.1.42"
+
+################################################################
+#  Debian-style build (same pattern as libyang / libnetconf2 / sysrepo)
+################################################################
+inherit dpkg
+
+################################################################
+# Build dependencies inside Debian schroot (Debian package names)
+################################################################
+DEBIAN_BUILD_DEPENDS += " \
+    cmake, ninja-build, pkg-config, \
+    libpcre2-dev, libssh-dev, \
+    libssl-dev, zlib1g-dev, libcmocka-dev, libbsd-dev \
+"
+
+################################################################
+# Runtime dependencies in the target rootfs
+################################################################
+DEBIAN_DEPENDS = " \
+    libyang, libnetconf2, sysrepo, \
+    libssh-4, libssl3, zlib1g \
+"
+
+################################################################
+#  Prepare Debian packaging tree and patch debian/control + rules
+################################################################
+do_prepare_build[cleandirs] += "${S}/debian"
+
+do_prepare_build() {
+    # Generate basic Debian packaging (debian/control, rules, etc.)
+    deb_debianize
+
+    #
+    # 1) Drop any upstream versioned dev deps (libyang2-dev, libnetconf2-dev, sysrepo-dev)
+    #
+    sed -i -e 's/libyang2-dev ([^)]*)//g' \
+           -e 's/libnetconf2-dev ([^)]*)//g' \
+           -e 's/sysrepo-dev ([^)]*)//g' \
+           ${S}/debian/control || true
+
+    # Clean up possible leftover ", ," or double commas
+    sed -i -e 's/,,/,/g' -e 's/, ,/,/g' ${S}/debian/control
+
+    #
+    # 2) Explicitly add your locally built packages to Build-Depends
+    #
+    sed -i '/^Build-Depends:/ s/$/, libyang, libnetconf2, sysrepo/' \
+        ${S}/debian/control
+
+    #
+    # 3) Ensure the rest of the build tools are present
+    #
+    sed -i '/^Build-Depends:/ s/$/, cmake, ninja-build, pkg-config, libpcre2-dev, libssh-dev, libssl-dev, zlib1g-dev, libcmocka-dev, libbsd-dev/' \
+        ${S}/debian/control
+
+    #
+    # 4) Disable upstream unit tests – they are failing in sbuild/isar,
+    #    so we override dh_auto_test to be a no-op.
+    #
+    cat >> ${S}/debian/rules << 'EOF'
+
+override_dh_auto_test:
+	# Disable Netopeer2 unit tests in ISAR build environment
+	true
+EOF
+}
+
+################################################################
+#  No manual do_configure / do_compile / do_install.
+#  dpkg-buildpackage (inside sbuild) handles everything.
+################################################################

@@ -1,0 +1,13 @@
+/dts-v1/;
+
+/include/ "zynqmp-zcu102-rev1.0.dts"
+/include/ "custom-overlay.dtsi"
+
+/ {
+    model = "ZynqMP Z19 Custom Board";
+    compatible = "mycompany,z19", "xlnx,zynqmp-zcu102", "xlnx,zynqmp";
+
+    chosen {
+        bootargs = "earlycon clk_ignore_unused console=ttyPS0,115200";
+    };
+};

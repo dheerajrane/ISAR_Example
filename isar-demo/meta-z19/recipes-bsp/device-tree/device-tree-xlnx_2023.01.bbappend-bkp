@@ -1,0 +1,27 @@
+FILESEXTRAPATHS:prepend := "${THISDIR}/files:"
+
+SRC_URI += "file://zynqmp-zcu102-custom.dts"
+SRC_URI += "file://custom-overlay.dtsi"
+
+do_build:prepend() {
+    bbnote "Building custom ZCU102 DTB"
+    install -m 0644 ${WORKDIR}/zynqmp-zcu102-custom.dts \
+        ${S}/arch/arm64/boot/dts/xilinx/zynqmp-zcu102-custom.dts
+
+    make ARCH=arm64 CROSS_COMPILE=${TARGET_PREFIX} \
+        xilinx/zynqmp-zcu102-custom.dtb -C ${S}
+}
+
+do_install:prepend() {
+    bbnote "Installing custom DTB replacing vendor DTB"
+    install -m 0644 \
+        ${S}/arch/arm64/boot/dts/xilinx/zynqmp-zcu102-custom.dtb \
+        ${D}/tmpdtb/devicetree.dtb
+}
+
+do_deploy_deb:append() {
+    bbnote "Deploying custom DTB to images directory"
+    install -Dm0644 ${D}/tmpdtb/devicetree.dtb \
+        ${DEPLOY_DIR_IMAGE}/devicetree.dtb
+}
+

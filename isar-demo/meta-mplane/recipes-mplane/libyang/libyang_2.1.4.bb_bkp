@@ -1,0 +1,43 @@
+DESCRIPTION = "libyang2 - YANG parser"
+HOMEPAGE = "https://github.com/CESNET/libyang"
+LICENSE = "BSD-3-Clause"
+LIC_FILES_CHKSUM = "file://LICENSE;md5=fb391cabd4a9d3958ebf8a6c7a36b2e3"
+
+# REMOVE the tag=v2.1.4 parameter from SRC_URI
+SRC_URI = "git://github.com/CESNET/libyang.git;protocol=https" 
+
+# Keep the fixed Git Commit SHA for SRCREV. This is the single source of truth.
+SRCREV = "c7e6136c3226f0c6a95d598ff3ab69c8e89b9a40"
+
+S = "${WORKDIR}/git"
+
+inherit dpkg-raw
+
+DEBIAN_BUILD_DEPENDS = "cmake, ninja-build:native, libpcre2-dev, \
+                        libssh-dev, libcmocka-dev"
+
+# Manual build dependencies (used for Depends line in control)
+DEBIAN_DEPENDS = "cmake, ninja-build, libpcre2-dev, libssh-dev, libcmocka-dev"
+
+# Define CMAKE build commands manually
+do_configure() {
+    cmake -G Ninja \
+        -DCMAKE_INSTALL_PREFIX=/usr \
+        -DCMAKE_BUILD_TYPE=Release \
+        -B ${B} -S ${S}
+}
+
+do_compile() {
+    ninja -C ${B}
+}
+
+do_install() {
+    # Install targets into the packaging directory
+    ninja -C ${B} install/strip DESTDIR=${D}
+}
+
+# The build directory is B
+B = "${WORKDIR}/build"
+
+# Define which files go into the package
+FILES:${PN} += "/usr/*"

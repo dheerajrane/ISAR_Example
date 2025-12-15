@@ -1,0 +1,10 @@
+DESCRIPTION = "Xilinx Linux kernel 6.1"
+LICENSE = "GPLv2"
+
+require recipes-bsp/u-boot/u-boot-custom.inc
+
+SRC_URI += "git://github.com/Xilinx/u-boot-xlnx.git;branch=xlnx_rebase_v2023.01_2023.1;protocol=https"
+SRCREV = "716921b6d7dc9db49660369428fb61ca96947ccb"
+
+PV = "6.1+xlnx"
+S = "${WORKDIR}/git"

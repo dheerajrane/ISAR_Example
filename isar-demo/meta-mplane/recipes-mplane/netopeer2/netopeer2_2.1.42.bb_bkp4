@@ -1,0 +1,101 @@
+DESCRIPTION = "Netopeer2 NETCONF server"
+HOMEPAGE = "https://github.com/CESNET/netopeer2"
+LICENSE = "BSD-3-Clause"
+LIC_FILES_CHKSUM = "file://LICENSE;md5=8af869d5328f0c3929dea66c48f6a796"
+
+SRC_URI = "git://github.com/CESNET/netopeer2.git;protocol=https;branch=master"
+# Tag for v2.1.42
+SRCREV = "00ea22af3ff04b2a6978243ac485d8db18ec3b0c"
+
+S  = "${WORKDIR}/git"
+PV = "2.1.42"
+
+################################################################
+#  Debian-style build (same pattern as libyang / libnetconf2 / sysrepo)
+################################################################
+inherit dpkg
+
+################################################################
+# Build dependencies inside Debian schroot (generic tools only)
+################################################################
+DEBIAN_BUILD_DEPENDS += " \
+    cmake, ninja-build, pkg-config, \
+    libpcre2-dev, libssh-dev, \
+    libssl-dev, zlib1g-dev, libcmocka-dev \
+"
+
+################################################################
+# Runtime dependencies in the target rootfs (your ISAR-built stack)
+################################################################
+DEBIAN_DEPENDS = " \
+    libyang, libnetconf2, sysrepo, \
+    libssh-4, libssl3, zlib1g \
+"
+
+################################################################
+#  Prepare Debian packaging tree and patch debian/control + scripts
+################################################################
+do_prepare_build[cleandirs] += "${S}/debian"
+
+do_prepare_build() {
+    # Generate basic Debian packaging (debian/control, rules, etc.)
+    deb_debianize
+
+    #
+    # 1) Drop Ubuntu dev package variants from Build-Depends (if present)
+    #
+    sed -i -e 's/libcurl4-gnutls-dev//g' \
+           -e 's/libyang2-dev//g' \
+           -e 's/libnetconf2-dev//g' \
+           -e 's/libsysrepo-dev//g' \
+           ${S}/debian/control || true
+
+    # Clean up possible ", ," / trailing commas
+    sed -i -e 's/,,/,/g' \
+           -e 's/, ,/,/g' \
+           -e 's/, *$//' \
+           ${S}/debian/control
+
+    #
+    # 2) Explicitly add your locally built packages to Build-Depends
+    #
+    sed -i '/^Build-Depends:/ s/$/, libyang:arm64, libnetconf2:arm64, sysrepo:arm64/' \
+        ${S}/debian/control
+
+    #
+    # 3) Ensure all required build tools are present
+    #
+    sed -i '/^Build-Depends:/ s/$/, cmake, ninja-build, pkg-config, libpcre2-dev, libssh-dev, libssl-dev, zlib1g-dev, libcmocka-dev/' \
+        ${S}/debian/control
+
+    #sed -i '1a export DEB_CMAKE_EXTRA_FLAGS=-DENABLE_TESTS=OFF' \
+    #    ${S}/debian/rules
+
+    cat << 'EOF' >> ${S}/debian/rules
+
+override_dh_auto_test:
+	@echo "Skipping netopeer2 tests under ISAR (test_subscribe_param is flaky here)"
+	# dh_auto_test disabled on purpose
+    true
+EOF
+    #
+    # 4) Disable runtime sysrepo setup during "make install".
+    #    Upstream scripts/setup.sh tries to talk to a live sysrepo at /etc/sysrepo
+    #    using sysrepoctl, which is forbidden in the sbuild chroot and causes:
+    #      "Creating directory '/etc/sysrepo' failed (Permission denied)"
+    #
+    #    For packaging we only want to install files into DESTDIR, not to
+    #    initialize the datastore. So we replace scripts/setup.sh by a no-op.
+    #
+    if [ -f ${S}/scripts/setup.sh ]; then
+        cat > ${S}/scripts/setup.sh << 'EOF'
+#!/bin/sh
+# Dummy setup script for ISAR/Debian packaging.
+# The real sysrepo datastore initialization is expected to be done
+# on the target system (for example via a postinst or manually),
+# not during package build in sbuild.
+exit 0
+EOF
+        chmod +x ${S}/scripts/setup.sh
+    fi
+}

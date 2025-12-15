@@ -1,0 +1,610 @@
+202323 01:32:00.739220 --- Starting bitbake server pid 202323 at 2025-11-19 01:32:00.739195 ---
+202323 01:32:00.740239 Started bitbake server pid 202323
+202323 01:32:00.740442 Entering server connection loop
+202323 01:32:00.740462 Lockfile is: /home/osboxes/isar-demo/bitbake.lock
+Socket is /home/osboxes/isar-demo/bitbake.sock (True)
+202323 01:32:00.743415 Accepting [<socket.socket fd=6, family=1, type=1, proto=0, laddr=bitbake.sock>] ([])
+202323 01:32:00.744330 Processing Client
+202323 01:32:00.744386 Connecting Client
+202323 01:32:00.744687 Running command ['setFeatures', [2, 1]]
+202323 01:32:00.744726 Sending reply (None, None)
+202323 01:32:00.745055 Command Completed (socket: True)
+202323 01:32:00.745872 Running command ['updateConfig', {'halt': True, 'force': False, 'invalidate_stamp': None, 'dry_run': False, 'dump_signatures': [], 'extra_assume_provided': [], 'profile': False, 'prefile': [], 'postfile': [], 'server_timeout': None, 'nosetscene': False, 'setsceneonly': False, 'skipsetscene': False, 'runall': [], 'runonly': None, 'writeeventlog': None, 'build_verbose_shell': False, 'build_verbose_stdout': False, 'default_loglevel': 20, 'debug_domains': {}}, {'SHELL': '/bin/bash', 'TESTSUITEDIR': '/home/osboxes/isar-demo/isar/testsuite', 'BB_ENV_PASSTHROUGH_ADDITIONS': 'BITBAKEDIR SCRIPTSDIR TESTSUITEDIR http_proxy https_proxy ftp_proxy no_proxy GNUPGHOME CCACHE_DEBUG BB_NUMBER_THREADS PARALLEL_MAKE', 'BITBAKEDIR': '/home/osboxes/isar-demo/isar/bitbake', 'PWD': '/home/osboxes/isar-demo', 'LOGNAME': 'osboxes', 'HOME': '/home/osboxes', 'BBPATH': '/home/osboxes/isar-demo', 'SCRIPTSDIR': '/home/osboxes/isar-demo/isar/scripts', 'USER': 'osboxes', 'PATH': '/home/osboxes/isar-demo/isar/scripts:/home/osboxes/isar-demo/isar/bitbake/bin:/home/osboxes/.local/bin:/usr/local/bin:/usr/bin:/bin:/usr/local/games:/usr/games:/home/osboxes/.local/bin:/home/osboxes/.local/bin', 'LC_ALL': 'en_US.UTF-8', 'SESSION_MANAGER': 'local/osboxes:@/tmp/.ICE-unix/1462,unix/osboxes:/tmp/.ICE-unix/1462', 'QT_ACCESSIBILITY': '1', 'COLORTERM': 'truecolor', 'SSH_AGENT_LAUNCHER': 'openssh', 'XDG_MENU_PREFIX': 'gnome-', 'GNOME_DESKTOP_SESSION_ID': 'this-is-deprecated', 'SSH_AUTH_SOCK': '/run/user/1000/keyring/ssh', 'XMODIFIERS': '@im=ibus', 'DESKTOP_SESSION': 'gnome', 'GTK_MODULES': 'gail:atk-bridge', 'XDG_SESSION_DESKTOP': 'gnome', 'XDG_SESSION_TYPE': 'wayland', 'SYSTEMD_EXEC_PID': '1491', 'XAUTHORITY': '/run/user/1000/.mutter-Xwaylandauth.9SOQF3', 'GDM_LANG': 'en_US.UTF-8', 'USERNAME': 'osboxes', 'IM_CONFIG_PHASE': '1', 'LANG': 'en_US.UTF-8', 'LS_COLORS': 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=00:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.avif=01;35:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.webp=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:*~=00;90:*#=00;90:*.bak=00;90:*.old=00;90:*.orig=00;90:*.part=00;90:*.rej=00;90:*.swp=00;90:*.tmp=00;90:*.dpkg-dist=00;90:*.dpkg-old=00;90:*.ucf-dist=00;90:*.ucf-new=00;90:*.ucf-old=00;90:*.rpmnew=00;90:*.rpmorig=00;90:*.rpmsave=00;90:', 'XDG_CURRENT_DESKTOP': 'GNOME', 'VTE_VERSION': '7006', 'WAYLAND_DISPLAY': 'wayland-0', 'GNOME_TERMINAL_SCREEN': '/org/gnome/Terminal/screen/c1bdea21_9382_4783_b95e_48b322d4c2eb', 'GNOME_SETUP_DISPLAY': ':1', 'XDG_SESSION_CLASS': 'user', 'TERM': 'xterm-256color', 'GNOME_TERMINAL_SERVICE': ':1.95', 'DISPLAY': ':0', 'SHLVL': '1', 'QT_IM_MODULE': 'ibus', 'XDG_RUNTIME_DIR': '/run/user/1000', 'XDG_DATA_DIRS': '/usr/share/gnome:/usr/local/share/:/usr/share/', 'GDMSESSION': 'gnome', 'DBUS_SESSION_BUS_ADDRESS': 'unix:path=/run/user/1000/bus', 'BUILDDIR': '/home/osboxes/isar-demo', 'OLDPWD': '/home/osboxes/isar-demo', '_': '/home/osboxes/isar-demo/isar/bitbake/bin/bitbake-layers'}, ['/home/osboxes/isar-demo/isar/bitbake/bin/bitbake-layers', 'show-layers']]
+202323 01:32:03.155437 Base config valid
+202323 01:32:03.155972 Sending reply (None, None)
+202323 01:32:03.156209 Command Completed (socket: True)
+202323 01:32:03.166205 Running command ['parseConfiguration']
+202323 01:32:03.167357 Sending reply (None, None)
+202323 01:32:03.167561 Command Completed (socket: True)
+202323 01:32:03.175980 Running command ['dataStoreConnectorCmd', 0, 'getVar', ('BBMULTICONFIG',), {}]
+202323 01:32:03.176076 Sending reply ('     qemuarm-buster     qemuarm-bullseye     qemuarm-bookworm     qemuarm-trixie     qemuarm64-buster     qemuarm64-bullseye     qemuarm64-bookworm     qemuarm64-trixie     qemui386-buster     qemui386-bullseye     qemui386-bookworm     qemuamd64-buster     qemuamd64-bullseye     qemuamd64-sb-bullseye     qemuamd64-bookworm     qemuamd64-cip-bookworm     qemuamd64-iso-bookworm     qemuamd64-trixie     container-amd64-buster     container-amd64-bullseye     container-amd64-bookworm     qemumipsel-bullseye     qemumipsel-bookworm     qemuriscv64-trixie     bananapi-buster     bananapi-bullseye     bananapi-bookworm     beagleplay-bookworm     de0-nano-soc-buster     de0-nano-soc-bullseye     de0-nano-soc-bookworm     hikey-bullseye     hikey-bookworm     imx6-sabrelite-buster     imx6-sabrelite-bullseye     phyboard-mira-bullseye     phyboard-mira-bookworm     nanopi-neo-buster     nanopi-neo-bullseye     nanopi-neo-bookworm     nanopi-neo-efi-bookworm     stm32mp15x-bullseye     virtualbox-bullseye     virtualbox-bookworm     x86-pc-bookworm     rpi-arm-bullseye     rpi-arm-bookworm     rpi-arm-v7-bullseye     rpi-arm-v7-bookworm     rpi-arm-v7l-bullseye     rpi-arm-v7l-bookworm     rpi-arm64-v8-bullseye     rpi-arm64-v8-bookworm     rpi-arm64-v8-efi-bookworm     sifive-fu540-trixie     starfive-visionfive2-trixie     qemuarm64-focal     qemuarm64-jammy     qemuarm64-noble     qemuamd64-focal     qemuamd64-jammy     qemuamd64-noble     qemuamd64-sid     qemuarm64-sid ', None)
+202323 01:32:03.176240 Command Completed (socket: True)
+202323 01:32:03.184599 Running command ['dataStoreConnectorCmd', 0, 'getVar', ('BBPATH',), {}]
+202323 01:32:03.184734 Sending reply ('/home/osboxes/isar-demo:/home/osboxes/isar-demo/isar/meta:/home/osboxes/isar-demo/isar/meta-isar', None)
+202323 01:32:03.184894 Command Completed (socket: True)
+202323 01:32:03.251076 Running command ['dataStoreConnectorCmd', 0, 'getVar', ('BBLAYERS',), {}]
+202323 01:32:03.251188 Sending reply ('   /home/osboxes/isar-demo/isar/meta   /home/osboxes/isar-demo/isar/meta-isar   ', None)
+202323 01:32:03.251361 Command Completed (socket: True)
+202323 01:32:03.251901 Running command ['dataStoreConnectorVarHistCmd', 0, 'get_variable_items_files', ('BBFILE_COLLECTIONS',), {}]
+202323 01:32:03.252007 Sending reply ({'core': '/home/osboxes/isar-demo/isar/meta/conf/layer.conf', 'isar': '/home/osboxes/isar-demo/isar/meta-isar/conf/layer.conf'}, None)
+202323 01:32:03.252184 Command Completed (socket: True)
+202323 01:32:03.253611 Running command ['dataStoreConnectorCmd', 0, 'getVar', ('BBLAYERS',), {}]
+202323 01:32:03.253665 Sending reply ('   /home/osboxes/isar-demo/isar/meta   /home/osboxes/isar-demo/isar/meta-isar   ', None)
+202323 01:32:03.253865 Command Completed (socket: True)
+202323 01:32:03.254343 Running command ['dataStoreConnectorVarHistCmd', 0, 'get_variable_items_files', ('BBFILE_COLLECTIONS',), {}]
+202323 01:32:03.254429 Sending reply ({'core': '/home/osboxes/isar-demo/isar/meta/conf/layer.conf', 'isar': '/home/osboxes/isar-demo/isar/meta-isar/conf/layer.conf'}, None)
+202323 01:32:03.254573 Command Completed (socket: True)
+202323 01:32:03.256792 Running command ['dataStoreConnectorCmd', 0, 'getVar', ('BBLAYERS',), {}]
+202323 01:32:03.256839 Sending reply ('   /home/osboxes/isar-demo/isar/meta   /home/osboxes/isar-demo/isar/meta-isar   ', None)
+202323 01:32:03.256966 Command Completed (socket: True)
+202323 01:32:03.257361 Running command ['dataStoreConnectorVarHistCmd', 0, 'get_variable_items_files', ('BBFILE_COLLECTIONS',), {}]
+202323 01:32:03.257432 Sending reply ({'core': '/home/osboxes/isar-demo/isar/meta/conf/layer.conf', 'isar': '/home/osboxes/isar-demo/isar/meta-isar/conf/layer.conf'}, None)
+202323 01:32:03.257559 Command Completed (socket: True)
+202323 01:32:03.260110 Running command ['getLayerPriorities']
+202323 01:32:03.260656 Sending reply ([('core', '^/home/osboxes/isar-demo/isar/meta/', '^/home/osboxes/isar-demo/isar/meta/', 5), ('isar', '^/home/osboxes/isar-demo/isar/meta-isar/', '^/home/osboxes/isar-demo/isar/meta-isar/', 5)], None)
+202323 01:32:03.260826 Command Completed (socket: True)
+202323 01:32:03.262635 Running command ['clientComplete']
+202323 01:32:03.262709 Registering idle function <bound method Command.runAsyncCommand of <bb.command.Command object at 0x7fa5a34e4990>>
+202323 01:32:03.262722 Sending reply (True, None)
+202323 01:32:03.262876 Command Completed (socket: True)
+202323 01:32:03.289854 Removing idle function <bound method Command.runAsyncCommand of <bb.command.Command object at 0x7fa5a34e4990>>
+202323 01:32:03.290803 Processing Client
+202323 01:32:03.290884 Disconnecting Client (socket: True)
+202323 01:32:03.293720 No timeout, exiting.
+202323 01:32:03.396546 Exiting (socket: True)
+202323 01:32:03.397341 Exiting as we could obtain the lock
+sys:1: ResourceWarning: unclosed file <_io.TextIOWrapper name='/home/osboxes/isar-demo/bitbake-cookerdaemon.log' mode='a+' encoding='UTF-8'>
+3654 10:37:18.546508 --- Starting bitbake server pid 3654 at 2025-11-19 10:37:18.546469 ---
+3654 10:37:18.547938 Started bitbake server pid 3654
+3654 10:37:18.548199 Entering server connection loop
+3654 10:37:18.548223 Lockfile is: /home/osboxes/isar-demo/bitbake.lock
+Socket is /home/osboxes/isar-demo/bitbake.sock (True)
+3654 10:37:18.549411 Accepting [<socket.socket fd=6, family=1, type=1, proto=0, laddr=bitbake.sock>] ([])
+3654 10:37:18.551155 Processing Client
+3654 10:37:18.551206 Connecting Client
+3654 10:37:18.551471 Running command ['setFeatures', [2, 1]]
+3654 10:37:18.551504 Sending reply (None, None)
+3654 10:37:18.551636 Command Completed (socket: True)
+3654 10:37:18.552701 Running command ['updateConfig', {'halt': True, 'force': False, 'invalidate_stamp': None, 'dry_run': False, 'dump_signatures': [], 'extra_assume_provided': [], 'profile': False, 'prefile': [], 'postfile': [], 'server_timeout': None, 'nosetscene': False, 'setsceneonly': False, 'skipsetscene': False, 'runall': [], 'runonly': None, 'writeeventlog': None, 'build_verbose_shell': False, 'build_verbose_stdout': False, 'default_loglevel': 20, 'debug_domains': {}}, {'SHELL': '/bin/bash', 'TESTSUITEDIR': '/home/osboxes/isar-demo/isar/testsuite', 'BB_ENV_PASSTHROUGH_ADDITIONS': 'BITBAKEDIR SCRIPTSDIR TESTSUITEDIR http_proxy https_proxy ftp_proxy no_proxy GNUPGHOME CCACHE_DEBUG BB_NUMBER_THREADS PARALLEL_MAKE SSTATE_DIR SSTATE_MIRRORS DL_DIR TMPDIR', 'BITBAKEDIR': '/home/osboxes/isar-demo/isar/bitbake', 'PWD': '/home/osboxes/isar-demo', 'HOME': '/tmp/tmpx_kzrn6p', 'BBPATH': '/home/osboxes/isar-demo/build', 'SCRIPTSDIR': '/home/osboxes/isar-demo/isar/scripts', 'LC_ALL': 'en_US.UTF-8', 'PATH': '/home/osboxes/isar-demo/isar/scripts:/home/osboxes/isar-demo/isar/bitbake/bin:/usr/sbin:/usr/bin:/sbin:/bin', 'LANGUAGE': 'en_US:en', 'SSH_AUTH_SOCK': '/run/user/1000/keyring/ssh', 'LANG': 'en_US.UTF-8', 'HISTFILE': '/home/osboxes/isar-demo/.kas_shell_history', 'TERM': 'xterm-256color', 'SHLVL': '2', 'BUILDDIR': '/home/osboxes/isar-demo/build', 'OLDPWD': '/home/osboxes/isar-demo/build', '_': '/home/osboxes/isar-demo/isar/bitbake/bin/bitbake'}, ['/home/osboxes/isar-demo/isar/bitbake/bin/bitbake', '-p']]
+3654 10:37:20.577105 Base config valid
+3654 10:37:20.577580 Sending reply (None, None)
+3654 10:37:20.577788 Command Completed (socket: True)
+3654 10:37:20.586662 Running command ['getVariable', 'BBINCLUDELOGS']
+3654 10:37:20.586748 Sending reply ('yes', None)
+3654 10:37:20.586893 Command Completed (socket: True)
+3654 10:37:20.599071 Running command ['getVariable', 'BBINCLUDELOGS_LINES']
+3654 10:37:20.599137 Sending reply (None, None)
+3654 10:37:20.599196 Command Completed (socket: True)
+3654 10:37:20.609867 Running command ['getSetVariable', 'BB_CONSOLELOG']
+3654 10:37:20.609970 Sending reply (None, None)
+3654 10:37:20.610099 Command Completed (socket: True)
+3654 10:37:20.619883 Running command ['getSetVariable', 'BB_LOGCONFIG']
+3654 10:37:20.619971 Sending reply (None, None)
+3654 10:37:20.620054 Command Completed (socket: True)
+3654 10:37:20.633958 Running command ['getUIHandlerNum']
+3654 10:37:20.634015 Sending reply (1, None)
+3654 10:37:20.634084 Command Completed (socket: True)
+3654 10:37:20.645206 Running command ['setEventMask', 1, 20, {}, ['bb.runqueue.runQueueExitWait', 'bb.event.LogExecTTY', 'logging.LogRecord', 'bb.build.TaskFailed', 'bb.build.TaskBase', 'bb.event.ParseStarted', 'bb.event.ParseProgress', 'bb.event.ParseCompleted', 'bb.event.CacheLoadStarted', 'bb.event.CacheLoadProgress', 'bb.event.CacheLoadCompleted', 'bb.command.CommandFailed', 'bb.command.CommandExit', 'bb.command.CommandCompleted', 'bb.cooker.CookerExit', 'bb.event.MultipleProviders', 'bb.event.NoProvider', 'bb.runqueue.sceneQueueTaskStarted', 'bb.runqueue.runQueueTaskStarted', 'bb.runqueue.runQueueTaskFailed', 'bb.runqueue.sceneQueueTaskFailed', 'bb.event.BuildBase', 'bb.build.TaskStarted', 'bb.build.TaskSucceeded', 'bb.build.TaskFailedSilent', 'bb.build.TaskProgress', 'bb.event.ProcessStarted', 'bb.event.ProcessProgress', 'bb.event.ProcessFinished']]
+3654 10:37:20.645282 Sending reply (True, None)
+3654 10:37:20.645358 Command Completed (socket: True)
+3654 10:37:20.654389 Running command ['getVariable', 'BB_DEFAULT_TASK']
+3654 10:37:20.654486 Sending reply (None, None)
+3654 10:37:20.654557 Command Completed (socket: True)
+3654 10:37:20.674986 Running command ['setConfig', 'cmd', 'build']
+3654 10:37:20.675054 Sending reply (None, None)
+3654 10:37:20.675128 Command Completed (socket: True)
+3654 10:37:20.679159 Running command ['getVariable', 'BBTARGETS']
+3654 10:37:20.679216 Sending reply (None, None)
+3654 10:37:20.679311 Command Completed (socket: True)
+3654 10:37:20.679739 Running command ['parseFiles']
+3654 10:37:20.679784 Registering idle function <bound method Command.runAsyncCommand of <bb.command.Command object at 0x7f3fdcdee950>>
+3654 10:37:20.679791 Sending reply (True, None)
+3654 10:37:20.679871 Command Completed (socket: True)
+3654 10:37:20.697636 Parsing started
+/home/osboxes/isar-demo/isar/meta/classes/bootstrap.bbclass:84: DeprecationWarning: invalid escape sequence '\s'
+  type, s = re.split("\s+", s, maxsplit=1)
+/home/osboxes/isar-demo/isar/meta/classes/bootstrap.bbclass:89: DeprecationWarning: invalid escape sequence '\['
+  options_match = re.match("\[\s*(\S+=\S+(?=\s))*\s*(\S+=\S+)\s*\]\s+", s)
+/home/osboxes/isar-demo/isar/meta/classes/bootstrap.bbclass:94: DeprecationWarning: invalid escape sequence '\s'
+  source, s = re.split("\s+", s, maxsplit=1)
+/home/osboxes/isar-demo/isar/meta/classes/bootstrap.bbclass:99: DeprecationWarning: invalid escape sequence '\s'
+  suite, s = re.split("\s+", s, maxsplit=1)
+/home/osboxes/isar-demo/isar/meta/classes/bootstrap.bbclass:119: DeprecationWarning: invalid escape sequence '\S'
+  premirrors = "\S* file://${REPO_BASE_DIR}/${BOOTSTRAP_BASE_DISTRO}\n"
+/home/osboxes/isar-demo/isar/meta/classes/bootstrap.bbclass:84: DeprecationWarning: invalid escape sequence '\s'
+  type, s = re.split("\s+", s, maxsplit=1)
+/home/osboxes/isar-demo/isar/meta/classes/bootstrap.bbclass:89: DeprecationWarning: invalid escape sequence '\['
+  options_match = re.match("\[\s*(\S+=\S+(?=\s))*\s*(\S+=\S+)\s*\]\s+", s)
+/home/osboxes/isar-demo/isar/meta/classes/bootstrap.bbclass:94: DeprecationWarning: invalid escape sequence '\s'
+  source, s = re.split("\s+", s, maxsplit=1)
+/home/osboxes/isar-demo/isar/meta/classes/bootstrap.bbclass:99: DeprecationWarning: invalid escape sequence '\s'
+  suite, s = re.split("\s+", s, maxsplit=1)
+/home/osboxes/isar-demo/isar/meta/classes/bootstrap.bbclass:119: DeprecationWarning: invalid escape sequence '\S'
+  premirrors = "\S* file://${REPO_BASE_DIR}/${BOOTSTRAP_BASE_DISTRO}\n"
+/home/osboxes/isar-demo/isar/meta/classes/bootstrap.bbclass:84: DeprecationWarning: invalid escape sequence '\s'
+  type, s = re.split("\s+", s, maxsplit=1)
+/home/osboxes/isar-demo/isar/meta/classes/bootstrap.bbclass:89: DeprecationWarning: invalid escape sequence '\['
+  options_match = re.match("\[\s*(\S+=\S+(?=\s))*\s*(\S+=\S+)\s*\]\s+", s)
+/home/osboxes/isar-demo/isar/meta/classes/bootstrap.bbclass:94: DeprecationWarning: invalid escape sequence '\s'
+  source, s = re.split("\s+", s, maxsplit=1)
+/home/osboxes/isar-demo/isar/meta/classes/bootstrap.bbclass:99: DeprecationWarning: invalid escape sequence '\s'
+  suite, s = re.split("\s+", s, maxsplit=1)
+/home/osboxes/isar-demo/isar/meta/classes/bootstrap.bbclass:119: DeprecationWarning: invalid escape sequence '\S'
+  premirrors = "\S* file://${REPO_BASE_DIR}/${BOOTSTRAP_BASE_DISTRO}\n"
+/home/osboxes/isar-demo/isar/meta/classes/bootstrap.bbclass:84: DeprecationWarning: invalid escape sequence '\s'
+  type, s = re.split("\s+", s, maxsplit=1)
+/home/osboxes/isar-demo/isar/meta/classes/bootstrap.bbclass:89: DeprecationWarning: invalid escape sequence '\['
+  options_match = re.match("\[\s*(\S+=\S+(?=\s))*\s*(\S+=\S+)\s*\]\s+", s)
+/home/osboxes/isar-demo/isar/meta/classes/bootstrap.bbclass:94: DeprecationWarning: invalid escape sequence '\s'
+  source, s = re.split("\s+", s, maxsplit=1)
+/home/osboxes/isar-demo/isar/meta/classes/bootstrap.bbclass:99: DeprecationWarning: invalid escape sequence '\s'
+  suite, s = re.split("\s+", s, maxsplit=1)
+/home/osboxes/isar-demo/isar/meta/classes/bootstrap.bbclass:119: DeprecationWarning: invalid escape sequence '\S'
+  premirrors = "\S* file://${REPO_BASE_DIR}/${BOOTSTRAP_BASE_DISTRO}\n"
+/home/osboxes/isar-demo/isar/meta/classes/bootstrap.bbclass:84: DeprecationWarning: invalid escape sequence '\s'
+  type, s = re.split("\s+", s, maxsplit=1)
+/home/osboxes/isar-demo/isar/meta/classes/bootstrap.bbclass:89: DeprecationWarning: invalid escape sequence '\['
+  options_match = re.match("\[\s*(\S+=\S+(?=\s))*\s*(\S+=\S+)\s*\]\s+", s)
+/home/osboxes/isar-demo/isar/meta/classes/bootstrap.bbclass:94: DeprecationWarning: invalid escape sequence '\s'
+  source, s = re.split("\s+", s, maxsplit=1)
+/home/osboxes/isar-demo/isar/meta/classes/bootstrap.bbclass:99: DeprecationWarning: invalid escape sequence '\s'
+  suite, s = re.split("\s+", s, maxsplit=1)
+/home/osboxes/isar-demo/isar/meta/classes/bootstrap.bbclass:119: DeprecationWarning: invalid escape sequence '\S'
+  premirrors = "\S* file://${REPO_BASE_DIR}/${BOOTSTRAP_BASE_DISTRO}\n"
+/home/osboxes/isar-demo/isar/meta/classes/bootstrap.bbclass:84: DeprecationWarning: invalid escape sequence '\s'
+  type, s = re.split("\s+", s, maxsplit=1)
+/home/osboxes/isar-demo/isar/meta/classes/bootstrap.bbclass:89: DeprecationWarning: invalid escape sequence '\['
+  options_match = re.match("\[\s*(\S+=\S+(?=\s))*\s*(\S+=\S+)\s*\]\s+", s)
+/home/osboxes/isar-demo/isar/meta/classes/bootstrap.bbclass:94: DeprecationWarning: invalid escape sequence '\s'
+  source, s = re.split("\s+", s, maxsplit=1)
+/home/osboxes/isar-demo/isar/meta/classes/bootstrap.bbclass:99: DeprecationWarning: invalid escape sequence '\s'
+  suite, s = re.split("\s+", s, maxsplit=1)
+/home/osboxes/isar-demo/isar/meta/classes/bootstrap.bbclass:119: DeprecationWarning: invalid escape sequence '\S'
+  premirrors = "\S* file://${REPO_BASE_DIR}/${BOOTSTRAP_BASE_DISTRO}\n"
+/home/osboxes/isar-demo/isar/meta/classes/bootstrap.bbclass:84: DeprecationWarning: invalid escape sequence '\s'
+  type, s = re.split("\s+", s, maxsplit=1)
+/home/osboxes/isar-demo/isar/meta/classes/bootstrap.bbclass:89: DeprecationWarning: invalid escape sequence '\['
+  options_match = re.match("\[\s*(\S+=\S+(?=\s))*\s*(\S+=\S+)\s*\]\s+", s)
+/home/osboxes/isar-demo/isar/meta/classes/bootstrap.bbclass:94: DeprecationWarning: invalid escape sequence '\s'
+  source, s = re.split("\s+", s, maxsplit=1)
+/home/osboxes/isar-demo/isar/meta/classes/bootstrap.bbclass:99: DeprecationWarning: invalid escape sequence '\s'
+  suite, s = re.split("\s+", s, maxsplit=1)
+/home/osboxes/isar-demo/isar/meta/classes/bootstrap.bbclass:119: DeprecationWarning: invalid escape sequence '\S'
+  premirrors = "\S* file://${REPO_BASE_DIR}/${BOOTSTRAP_BASE_DISTRO}\n"
+/home/osboxes/isar-demo/isar/meta/classes/bootstrap.bbclass:84: DeprecationWarning: invalid escape sequence '\s'
+  type, s = re.split("\s+", s, maxsplit=1)
+/home/osboxes/isar-demo/isar/meta/classes/bootstrap.bbclass:89: DeprecationWarning: invalid escape sequence '\['
+  options_match = re.match("\[\s*(\S+=\S+(?=\s))*\s*(\S+=\S+)\s*\]\s+", s)
+/home/osboxes/isar-demo/isar/meta/classes/bootstrap.bbclass:94: DeprecationWarning: invalid escape sequence '\s'
+  source, s = re.split("\s+", s, maxsplit=1)
+/home/osboxes/isar-demo/isar/meta/classes/bootstrap.bbclass:99: DeprecationWarning: invalid escape sequence '\s'
+  suite, s = re.split("\s+", s, maxsplit=1)
+/home/osboxes/isar-demo/isar/meta/classes/bootstrap.bbclass:119: DeprecationWarning: invalid escape sequence '\S'
+  premirrors = "\S* file://${REPO_BASE_DIR}/${BOOTSTRAP_BASE_DISTRO}\n"
+/home/osboxes/isar-demo/isar/meta/classes/bootstrap.bbclass:84: DeprecationWarning: invalid escape sequence '\s'
+  type, s = re.split("\s+", s, maxsplit=1)
+/home/osboxes/isar-demo/isar/meta/classes/bootstrap.bbclass:89: DeprecationWarning: invalid escape sequence '\['
+  options_match = re.match("\[\s*(\S+=\S+(?=\s))*\s*(\S+=\S+)\s*\]\s+", s)
+/home/osboxes/isar-demo/isar/meta/classes/bootstrap.bbclass:94: DeprecationWarning: invalid escape sequence '\s'
+  source, s = re.split("\s+", s, maxsplit=1)
+/home/osboxes/isar-demo/isar/meta/classes/bootstrap.bbclass:99: DeprecationWarning: invalid escape sequence '\s'
+  suite, s = re.split("\s+", s, maxsplit=1)
+/home/osboxes/isar-demo/isar/meta/classes/bootstrap.bbclass:119: DeprecationWarning: invalid escape sequence '\S'
+  premirrors = "\S* file://${REPO_BASE_DIR}/${BOOTSTRAP_BASE_DISTRO}\n"
+/home/osboxes/isar-demo/isar/meta/classes/bootstrap.bbclass:84: DeprecationWarning: invalid escape sequence '\s'
+  type, s = re.split("\s+", s, maxsplit=1)
+/home/osboxes/isar-demo/isar/meta/classes/bootstrap.bbclass:89: DeprecationWarning: invalid escape sequence '\['
+  options_match = re.match("\[\s*(\S+=\S+(?=\s))*\s*(\S+=\S+)\s*\]\s+", s)
+/home/osboxes/isar-demo/isar/meta/classes/bootstrap.bbclass:94: DeprecationWarning: invalid escape sequence '\s'
+  source, s = re.split("\s+", s, maxsplit=1)
+/home/osboxes/isar-demo/isar/meta/classes/bootstrap.bbclass:99: DeprecationWarning: invalid escape sequence '\s'
+  suite, s = re.split("\s+", s, maxsplit=1)
+/home/osboxes/isar-demo/isar/meta/classes/bootstrap.bbclass:119: DeprecationWarning: invalid escape sequence '\S'
+  premirrors = "\S* file://${REPO_BASE_DIR}/${BOOTSTRAP_BASE_DISTRO}\n"
+/home/osboxes/isar-demo/isar/meta/classes/bootstrap.bbclass:84: DeprecationWarning: invalid escape sequence '\s'
+  type, s = re.split("\s+", s, maxsplit=1)
+/home/osboxes/isar-demo/isar/meta/classes/bootstrap.bbclass:89: DeprecationWarning: invalid escape sequence '\['
+  options_match = re.match("\[\s*(\S+=\S+(?=\s))*\s*(\S+=\S+)\s*\]\s+", s)
+/home/osboxes/isar-demo/isar/meta/classes/bootstrap.bbclass:94: DeprecationWarning: invalid escape sequence '\s'
+  source, s = re.split("\s+", s, maxsplit=1)
+/home/osboxes/isar-demo/isar/meta/classes/bootstrap.bbclass:99: DeprecationWarning: invalid escape sequence '\s'
+  suite, s = re.split("\s+", s, maxsplit=1)
+/home/osboxes/isar-demo/isar/meta/classes/bootstrap.bbclass:119: DeprecationWarning: invalid escape sequence '\S'
+  premirrors = "\S* file://${REPO_BASE_DIR}/${BOOTSTRAP_BASE_DISTRO}\n"
+/home/osboxes/isar-demo/isar/meta/classes/bootstrap.bbclass:84: DeprecationWarning: invalid escape sequence '\s'
+  type, s = re.split("\s+", s, maxsplit=1)
+/home/osboxes/isar-demo/isar/meta/classes/bootstrap.bbclass:89: DeprecationWarning: invalid escape sequence '\['
+  options_match = re.match("\[\s*(\S+=\S+(?=\s))*\s*(\S+=\S+)\s*\]\s+", s)
+/home/osboxes/isar-demo/isar/meta/classes/bootstrap.bbclass:94: DeprecationWarning: invalid escape sequence '\s'
+  source, s = re.split("\s+", s, maxsplit=1)
+/home/osboxes/isar-demo/isar/meta/classes/bootstrap.bbclass:99: DeprecationWarning: invalid escape sequence '\s'
+  suite, s = re.split("\s+", s, maxsplit=1)
+/home/osboxes/isar-demo/isar/meta/classes/bootstrap.bbclass:119: DeprecationWarning: invalid escape sequence '\S'
+  premirrors = "\S* file://${REPO_BASE_DIR}/${BOOTSTRAP_BASE_DISTRO}\n"
+/home/osboxes/isar-demo/isar/meta/classes/bootstrap.bbclass:84: DeprecationWarning: invalid escape sequence '\s'
+  type, s = re.split("\s+", s, maxsplit=1)
+/home/osboxes/isar-demo/isar/meta/classes/bootstrap.bbclass:89: DeprecationWarning: invalid escape sequence '\['
+  options_match = re.match("\[\s*(\S+=\S+(?=\s))*\s*(\S+=\S+)\s*\]\s+", s)
+/home/osboxes/isar-demo/isar/meta/classes/bootstrap.bbclass:94: DeprecationWarning: invalid escape sequence '\s'
+  source, s = re.split("\s+", s, maxsplit=1)
+/home/osboxes/isar-demo/isar/meta/classes/bootstrap.bbclass:99: DeprecationWarning: invalid escape sequence '\s'
+  suite, s = re.split("\s+", s, maxsplit=1)
+/home/osboxes/isar-demo/isar/meta/classes/bootstrap.bbclass:119: DeprecationWarning: invalid escape sequence '\S'
+  premirrors = "\S* file://${REPO_BASE_DIR}/${BOOTSTRAP_BASE_DISTRO}\n"
+/home/osboxes/isar-demo/isar/meta/classes/bootstrap.bbclass:84: DeprecationWarning: invalid escape sequence '\s'
+  type, s = re.split("\s+", s, maxsplit=1)
+/home/osboxes/isar-demo/isar/meta/classes/bootstrap.bbclass:89: DeprecationWarning: invalid escape sequence '\['
+  options_match = re.match("\[\s*(\S+=\S+(?=\s))*\s*(\S+=\S+)\s*\]\s+", s)
+/home/osboxes/isar-demo/isar/meta/classes/bootstrap.bbclass:94: DeprecationWarning: invalid escape sequence '\s'
+  source, s = re.split("\s+", s, maxsplit=1)
+/home/osboxes/isar-demo/isar/meta/classes/bootstrap.bbclass:99: DeprecationWarning: invalid escape sequence '\s'
+  suite, s = re.split("\s+", s, maxsplit=1)
+/home/osboxes/isar-demo/isar/meta/classes/bootstrap.bbclass:119: DeprecationWarning: invalid escape sequence '\S'
+  premirrors = "\S* file://${REPO_BASE_DIR}/${BOOTSTRAP_BASE_DISTRO}\n"
+/home/osboxes/isar-demo/isar/meta/classes/bootstrap.bbclass:84: DeprecationWarning: invalid escape sequence '\s'
+  type, s = re.split("\s+", s, maxsplit=1)
+/home/osboxes/isar-demo/isar/meta/classes/bootstrap.bbclass:89: DeprecationWarning: invalid escape sequence '\['
+  options_match = re.match("\[\s*(\S+=\S+(?=\s))*\s*(\S+=\S+)\s*\]\s+", s)
+/home/osboxes/isar-demo/isar/meta/classes/bootstrap.bbclass:94: DeprecationWarning: invalid escape sequence '\s'
+  source, s = re.split("\s+", s, maxsplit=1)
+/home/osboxes/isar-demo/isar/meta/classes/bootstrap.bbclass:99: DeprecationWarning: invalid escape sequence '\s'
+  suite, s = re.split("\s+", s, maxsplit=1)
+/home/osboxes/isar-demo/isar/meta/classes/bootstrap.bbclass:119: DeprecationWarning: invalid escape sequence '\S'
+  premirrors = "\S* file://${REPO_BASE_DIR}/${BOOTSTRAP_BASE_DISTRO}\n"
+/home/osboxes/isar-demo/isar/meta/classes/bootstrap.bbclass:84: DeprecationWarning: invalid escape sequence '\s'
+  type, s = re.split("\s+", s, maxsplit=1)
+/home/osboxes/isar-demo/isar/meta/classes/bootstrap.bbclass:89: DeprecationWarning: invalid escape sequence '\['
+  options_match = re.match("\[\s*(\S+=\S+(?=\s))*\s*(\S+=\S+)\s*\]\s+", s)
+/home/osboxes/isar-demo/isar/meta/classes/bootstrap.bbclass:94: DeprecationWarning: invalid escape sequence '\s'
+  source, s = re.split("\s+", s, maxsplit=1)
+/home/osboxes/isar-demo/isar/meta/classes/bootstrap.bbclass:99: DeprecationWarning: invalid escape sequence '\s'
+  suite, s = re.split("\s+", s, maxsplit=1)
+/home/osboxes/isar-demo/isar/meta/classes/bootstrap.bbclass:119: DeprecationWarning: invalid escape sequence '\S'
+  premirrors = "\S* file://${REPO_BASE_DIR}/${BOOTSTRAP_BASE_DISTRO}\n"
+/home/osboxes/isar-demo/isar/meta/classes/bootstrap.bbclass:84: DeprecationWarning: invalid escape sequence '\s'
+  type, s = re.split("\s+", s, maxsplit=1)
+/home/osboxes/isar-demo/isar/meta/classes/bootstrap.bbclass:89: DeprecationWarning: invalid escape sequence '\['
+  options_match = re.match("\[\s*(\S+=\S+(?=\s))*\s*(\S+=\S+)\s*\]\s+", s)
+/home/osboxes/isar-demo/isar/meta/classes/bootstrap.bbclass:94: DeprecationWarning: invalid escape sequence '\s'
+  source, s = re.split("\s+", s, maxsplit=1)
+/home/osboxes/isar-demo/isar/meta/classes/bootstrap.bbclass:99: DeprecationWarning: invalid escape sequence '\s'
+  suite, s = re.split("\s+", s, maxsplit=1)
+/home/osboxes/isar-demo/isar/meta/classes/bootstrap.bbclass:119: DeprecationWarning: invalid escape sequence '\S'
+  premirrors = "\S* file://${REPO_BASE_DIR}/${BOOTSTRAP_BASE_DISTRO}\n"
+/home/osboxes/isar-demo/isar/meta/classes/bootstrap.bbclass:84: DeprecationWarning: invalid escape sequence '\s'
+  type, s = re.split("\s+", s, maxsplit=1)
+/home/osboxes/isar-demo/isar/meta/classes/bootstrap.bbclass:89: DeprecationWarning: invalid escape sequence '\['
+  options_match = re.match("\[\s*(\S+=\S+(?=\s))*\s*(\S+=\S+)\s*\]\s+", s)
+/home/osboxes/isar-demo/isar/meta/classes/bootstrap.bbclass:94: DeprecationWarning: invalid escape sequence '\s'
+  source, s = re.split("\s+", s, maxsplit=1)
+/home/osboxes/isar-demo/isar/meta/classes/bootstrap.bbclass:99: DeprecationWarning: invalid escape sequence '\s'
+  suite, s = re.split("\s+", s, maxsplit=1)
+/home/osboxes/isar-demo/isar/meta/classes/bootstrap.bbclass:119: DeprecationWarning: invalid escape sequence '\S'
+  premirrors = "\S* file://${REPO_BASE_DIR}/${BOOTSTRAP_BASE_DISTRO}\n"
+3654 10:37:21.417742 Parse cache valid
+3654 10:38:47.833527 Removing idle function <bound method Command.runAsyncCommand of <bb.command.Command object at 0x7f3fdcdee950>>
+3654 10:38:47.933672 Processing Client
+3654 10:38:47.936966 Disconnecting Client (socket: True)
+3654 10:38:47.942057 Parse cache invalidated
+3654 10:38:47.942406 No timeout, exiting.
+3654 10:38:48.042675 Exiting (socket: True)
+3654 10:38:48.045598 Exiting as we could obtain the lock
+sys:1: ResourceWarning: unclosed file <_io.TextIOWrapper name='/home/osboxes/isar-demo/bitbake-cookerdaemon.log' mode='a+' encoding='UTF-8'>
+31764 10:39:27.812384 --- Starting bitbake server pid 31764 at 2025-11-19 10:39:27.812348 ---
+31764 10:39:27.847617 Started bitbake server pid 31764
+31764 10:39:27.848062 Entering server connection loop
+31764 10:39:27.848108 Lockfile is: /home/osboxes/isar-demo/bitbake.lock
+Socket is /home/osboxes/isar-demo/bitbake.sock (True)
+31764 10:39:27.849272 Accepting [<socket.socket fd=6, family=1, type=1, proto=0, laddr=bitbake.sock>] ([])
+31764 10:39:27.851657 Processing Client
+31764 10:39:27.851725 Connecting Client
+31764 10:39:27.852179 Running command ['setFeatures', [2, 1]]
+31764 10:39:27.852235 Sending reply (None, None)
+31764 10:39:27.852426 Command Completed (socket: True)
+31764 10:39:27.853386 Running command ['updateConfig', {'halt': True, 'force': False, 'invalidate_stamp': None, 'dry_run': False, 'dump_signatures': [], 'extra_assume_provided': [], 'profile': False, 'prefile': [], 'postfile': [], 'server_timeout': None, 'nosetscene': False, 'setsceneonly': False, 'skipsetscene': False, 'runall': [], 'runonly': None, 'writeeventlog': None, 'build_verbose_shell': True, 'build_verbose_stdout': True, 'default_loglevel': 19, 'debug_domains': {}}, {'SHELL': '/bin/bash', 'TESTSUITEDIR': '/home/osboxes/isar-demo/isar/testsuite', 'BB_ENV_PASSTHROUGH_ADDITIONS': 'BITBAKEDIR SCRIPTSDIR TESTSUITEDIR http_proxy https_proxy ftp_proxy no_proxy GNUPGHOME CCACHE_DEBUG BB_NUMBER_THREADS PARALLEL_MAKE SSTATE_DIR SSTATE_MIRRORS DL_DIR TMPDIR', 'BITBAKEDIR': '/home/osboxes/isar-demo/isar/bitbake', 'PWD': '/home/osboxes/isar-demo', 'HOME': '/tmp/tmpx_kzrn6p', 'BBPATH': '/home/osboxes/isar-demo/build', 'SCRIPTSDIR': '/home/osboxes/isar-demo/isar/scripts', 'LC_ALL': 'en_US.UTF-8', 'PATH': '/home/osboxes/isar-demo/isar/scripts:/home/osboxes/isar-demo/isar/bitbake/bin:/usr/sbin:/usr/bin:/sbin:/bin', 'LANGUAGE': 'en_US:en', 'SSH_AUTH_SOCK': '/run/user/1000/keyring/ssh', 'LANG': 'en_US.UTF-8', 'HISTFILE': '/home/osboxes/isar-demo/.kas_shell_history', 'TERM': 'xterm-256color', 'SHLVL': '2', 'BUILDDIR': '/home/osboxes/isar-demo/build', 'OLDPWD': '/home/osboxes/isar-demo/build', '_': '/home/osboxes/isar-demo/isar/bitbake/bin/bitbake'}, ['/home/osboxes/isar-demo/isar/bitbake/bin/bitbake', 'linux-xlnx', '-v']]
+31764 10:39:30.201980 Base config valid
+31764 10:39:30.202699 Sending reply (None, None)
+31764 10:39:30.202872 Command Completed (socket: True)
+31764 10:39:30.212172 Running command ['getVariable', 'BBINCLUDELOGS']
+31764 10:39:30.212242 Sending reply ('yes', None)
+31764 10:39:30.212372 Command Completed (socket: True)
+31764 10:39:30.218515 Running command ['getVariable', 'BBINCLUDELOGS_LINES']
+31764 10:39:30.218579 Sending reply (None, None)
+31764 10:39:30.218703 Command Completed (socket: True)
+31764 10:39:30.226945 Running command ['getSetVariable', 'BB_CONSOLELOG']
+31764 10:39:30.227029 Sending reply (None, None)
+31764 10:39:30.227135 Command Completed (socket: True)
+31764 10:39:30.233889 Running command ['getSetVariable', 'BB_LOGCONFIG']
+31764 10:39:30.233952 Sending reply (None, None)
+31764 10:39:30.234051 Command Completed (socket: True)
+31764 10:39:30.245208 Running command ['getUIHandlerNum']
+31764 10:39:30.245260 Sending reply (1, None)
+31764 10:39:30.245404 Command Completed (socket: True)
+31764 10:39:30.254872 Running command ['setEventMask', 1, 19, {}, ['bb.runqueue.runQueueExitWait', 'bb.event.LogExecTTY', 'logging.LogRecord', 'bb.build.TaskFailed', 'bb.build.TaskBase', 'bb.event.ParseStarted', 'bb.event.ParseProgress', 'bb.event.ParseCompleted', 'bb.event.CacheLoadStarted', 'bb.event.CacheLoadProgress', 'bb.event.CacheLoadCompleted', 'bb.command.CommandFailed', 'bb.command.CommandExit', 'bb.command.CommandCompleted', 'bb.cooker.CookerExit', 'bb.event.MultipleProviders', 'bb.event.NoProvider', 'bb.runqueue.sceneQueueTaskStarted', 'bb.runqueue.runQueueTaskStarted', 'bb.runqueue.runQueueTaskFailed', 'bb.runqueue.sceneQueueTaskFailed', 'bb.event.BuildBase', 'bb.build.TaskStarted', 'bb.build.TaskSucceeded', 'bb.build.TaskFailedSilent', 'bb.build.TaskProgress', 'bb.event.ProcessStarted', 'bb.event.ProcessProgress', 'bb.event.ProcessFinished']]
+31764 10:39:30.254934 Sending reply (True, None)
+31764 10:39:30.255128 Command Completed (socket: True)
+31764 10:39:30.255350 Running command ['getVariable', 'BB_DEFAULT_TASK']
+31764 10:39:30.255399 Sending reply (None, None)
+31764 10:39:30.255510 Command Completed (socket: True)
+31764 10:39:30.255736 Running command ['setConfig', 'cmd', 'build']
+31764 10:39:30.255785 Sending reply (None, None)
+31764 10:39:30.255893 Command Completed (socket: True)
+31764 10:39:30.256123 Running command ['buildTargets', ['linux-xlnx'], 'build']
+31764 10:39:30.256205 Registering idle function <bound method Command.runAsyncCommand of <bb.command.Command object at 0x7fa27604c6d0>>
+31764 10:39:30.256216 Sending reply (True, None)
+31764 10:39:30.256320 Command Completed (socket: True)
+31764 10:39:30.258284 Parsing started
+31764 10:39:33.025666 Parse cache valid
+31764 10:39:33.506831 Removing idle function <bound method Command.runAsyncCommand of <bb.command.Command object at 0x7fa27604c6d0>> at idleFinish
+31764 10:39:33.759265 Processing Client
+31764 10:39:33.759461 Disconnecting Client (socket: True)
+31764 10:39:33.764678 Parse cache invalidated
+31764 10:39:33.764729 No timeout, exiting.
+31764 10:39:33.868943 Exiting (socket: True)
+31764 10:39:33.871840 Exiting as we could obtain the lock
+sys:1: ResourceWarning: unclosed file <_io.TextIOWrapper name='/home/osboxes/isar-demo/bitbake-cookerdaemon.log' mode='a+' encoding='UTF-8'>
+108452 22:52:51.749448 --- Starting bitbake server pid 108452 at 2025-11-19 22:52:51.749411 ---
+108452 22:52:51.750172 Started bitbake server pid 108452
+108452 22:52:51.750436 Entering server connection loop
+108452 22:52:51.750451 Lockfile is: /home/osboxes/isar-demo/bitbake.lock
+Socket is /home/osboxes/isar-demo/bitbake.sock (True)
+108452 22:52:51.750959 Accepting [<socket.socket fd=6, family=1, type=1, proto=0, laddr=bitbake.sock>] ([])
+108452 22:52:51.752410 Processing Client
+108452 22:52:51.752459 Connecting Client
+108452 22:52:51.752648 Running command ['setFeatures', [2, 1]]
+108452 22:52:51.752667 Sending reply (None, None)
+108452 22:52:51.752744 Command Completed (socket: True)
+108452 22:52:51.753089 Running command ['updateConfig', {'halt': True, 'force': False, 'invalidate_stamp': None, 'dry_run': False, 'dump_signatures': [], 'extra_assume_provided': [], 'profile': False, 'prefile': [], 'postfile': [], 'server_timeout': None, 'nosetscene': False, 'setsceneonly': False, 'skipsetscene': False, 'runall': [], 'runonly': None, 'writeeventlog': None, 'build_verbose_shell': True, 'build_verbose_stdout': True, 'default_loglevel': 19, 'debug_domains': {}}, {'SHELL': '/bin/bash', 'TESTSUITEDIR': '/home/osboxes/isar-demo/isar/testsuite', 'BB_ENV_PASSTHROUGH_ADDITIONS': 'BITBAKEDIR SCRIPTSDIR TESTSUITEDIR http_proxy https_proxy ftp_proxy no_proxy GNUPGHOME CCACHE_DEBUG BB_NUMBER_THREADS PARALLEL_MAKE SSTATE_DIR SSTATE_MIRRORS DL_DIR TMPDIR', 'BITBAKEDIR': '/home/osboxes/isar-demo/isar/bitbake', 'PWD': '/home/osboxes/isar-demo', 'HOME': '/tmp/tmpr2t3iy2o', 'BBPATH': '/home/osboxes/isar-demo/build', 'SCRIPTSDIR': '/home/osboxes/isar-demo/isar/scripts', 'LC_ALL': 'en_US.UTF-8', 'PATH': '/home/osboxes/isar-demo/isar/scripts:/home/osboxes/isar-demo/isar/bitbake/bin:/usr/sbin:/usr/bin:/sbin:/bin', 'LANGUAGE': 'en_US:en', 'SSH_AUTH_SOCK': '/run/user/1000/keyring/ssh', 'LANG': 'en_US.UTF-8', 'HISTFILE': '/home/osboxes/isar-demo/.kas_shell_history', 'TERM': 'xterm-256color', 'SHLVL': '2', 'BUILDDIR': '/home/osboxes/isar-demo/build', 'OLDPWD': '/home/osboxes/isar-demo/build', '_': '/home/osboxes/isar-demo/isar/bitbake/bin/bitbake'}, ['/home/osboxes/isar-demo/isar/bitbake/bin/bitbake', 'linux-xlnx', '-v']]
+108452 22:52:52.983272 Base config valid
+108452 22:52:52.983676 Sending reply (None, None)
+108452 22:52:52.983810 Command Completed (socket: True)
+108452 22:52:52.997836 Running command ['getVariable', 'BBINCLUDELOGS']
+108452 22:52:52.997902 Sending reply ('yes', None)
+108452 22:52:52.998024 Command Completed (socket: True)
+108452 22:52:53.004374 Running command ['getVariable', 'BBINCLUDELOGS_LINES']
+108452 22:52:53.004422 Sending reply (None, None)
+108452 22:52:53.004509 Command Completed (socket: True)
+108452 22:52:53.015107 Running command ['getSetVariable', 'BB_CONSOLELOG']
+108452 22:52:53.015188 Sending reply (None, None)
+108452 22:52:53.015236 Command Completed (socket: True)
+108452 22:52:53.021489 Running command ['getSetVariable', 'BB_LOGCONFIG']
+108452 22:52:53.021544 Sending reply (None, None)
+108452 22:52:53.021631 Command Completed (socket: True)
+108452 22:52:53.029112 Running command ['getUIHandlerNum']
+108452 22:52:53.029154 Sending reply (1, None)
+108452 22:52:53.029218 Command Completed (socket: True)
+108452 22:52:53.034874 Running command ['setEventMask', 1, 19, {}, ['bb.runqueue.runQueueExitWait', 'bb.event.LogExecTTY', 'logging.LogRecord', 'bb.build.TaskFailed', 'bb.build.TaskBase', 'bb.event.ParseStarted', 'bb.event.ParseProgress', 'bb.event.ParseCompleted', 'bb.event.CacheLoadStarted', 'bb.event.CacheLoadProgress', 'bb.event.CacheLoadCompleted', 'bb.command.CommandFailed', 'bb.command.CommandExit', 'bb.command.CommandCompleted', 'bb.cooker.CookerExit', 'bb.event.MultipleProviders', 'bb.event.NoProvider', 'bb.runqueue.sceneQueueTaskStarted', 'bb.runqueue.runQueueTaskStarted', 'bb.runqueue.runQueueTaskFailed', 'bb.runqueue.sceneQueueTaskFailed', 'bb.event.BuildBase', 'bb.build.TaskStarted', 'bb.build.TaskSucceeded', 'bb.build.TaskFailedSilent', 'bb.build.TaskProgress', 'bb.event.ProcessStarted', 'bb.event.ProcessProgress', 'bb.event.ProcessFinished']]
+108452 22:52:53.034924 Sending reply (True, None)
+108452 22:52:53.035087 Command Completed (socket: True)
+108452 22:52:53.042479 Running command ['getVariable', 'BB_DEFAULT_TASK']
+108452 22:52:53.042548 Sending reply (None, None)
+108452 22:52:53.042647 Command Completed (socket: True)
+108452 22:52:53.049154 Running command ['setConfig', 'cmd', 'build']
+108452 22:52:53.049193 Sending reply (None, None)
+108452 22:52:53.049236 Command Completed (socket: True)
+108452 22:52:53.055466 Running command ['buildTargets', ['linux-xlnx'], 'build']
+108452 22:52:53.055518 Registering idle function <bound method Command.runAsyncCommand of <bb.command.Command object at 0x7ff0801444d0>>
+108452 22:52:53.055524 Sending reply (True, None)
+108452 22:52:53.055630 Command Completed (socket: True)
+108452 22:52:53.095017 Parsing started
+108452 22:52:55.745076 Parse cache valid
+108452 22:52:56.139607 Removing idle function <bound method Command.runAsyncCommand of <bb.command.Command object at 0x7ff0801444d0>> at idleFinish
+108452 22:52:56.393375 Processing Client
+108452 22:52:56.393552 Disconnecting Client (socket: True)
+108452 22:52:56.396190 Parse cache invalidated
+108452 22:52:56.396215 No timeout, exiting.
+108452 22:52:56.496641 Exiting (socket: True)
+108452 22:52:56.507042 Exiting as we could obtain the lock
+sys:1: ResourceWarning: unclosed file <_io.TextIOWrapper name='/home/osboxes/isar-demo/bitbake-cookerdaemon.log' mode='a+' encoding='UTF-8'>
+127487 00:30:20.484435 --- Starting bitbake server pid 127487 at 2025-11-21 00:30:20.484414 ---
+127487 00:30:20.485847 Started bitbake server pid 127487
+127487 00:30:20.485985 Entering server connection loop
+127487 00:30:20.485998 Lockfile is: /home/osboxes/isar-demo/bitbake.lock
+Socket is /home/osboxes/isar-demo/bitbake.sock (True)
+127487 00:30:20.486635 Accepting [<socket.socket fd=6, family=1, type=1, proto=0, laddr=bitbake.sock>] ([])
+127487 00:30:20.487563 Processing Client
+127487 00:30:20.487588 Connecting Client
+127487 00:30:20.487772 Running command ['setFeatures', [2, 1]]
+127487 00:30:20.487793 Sending reply (None, None)
+127487 00:30:20.487871 Command Completed (socket: True)
+127487 00:30:20.488225 Running command ['updateConfig', {'halt': True, 'force': False, 'invalidate_stamp': None, 'dry_run': False, 'dump_signatures': [], 'extra_assume_provided': [], 'profile': False, 'prefile': [], 'postfile': [], 'server_timeout': None, 'nosetscene': False, 'setsceneonly': False, 'skipsetscene': False, 'runall': [], 'runonly': None, 'writeeventlog': None, 'build_verbose_shell': True, 'build_verbose_stdout': True, 'default_loglevel': 19, 'debug_domains': {}}, {'SHELL': '/bin/bash', 'TESTSUITEDIR': '/home/osboxes/isar-demo/isar/testsuite', 'BB_ENV_PASSTHROUGH_ADDITIONS': 'BITBAKEDIR SCRIPTSDIR TESTSUITEDIR http_proxy https_proxy ftp_proxy no_proxy GNUPGHOME CCACHE_DEBUG BB_NUMBER_THREADS PARALLEL_MAKE SSTATE_DIR SSTATE_MIRRORS DL_DIR TMPDIR', 'BITBAKEDIR': '/home/osboxes/isar-demo/isar/bitbake', 'PWD': '/home/osboxes/isar-demo', 'HOME': '/tmp/tmp_6wmb3jm', 'BBPATH': '/home/osboxes/isar-demo/build', 'SCRIPTSDIR': '/home/osboxes/isar-demo/isar/scripts', 'LC_ALL': 'en_US.UTF-8', 'PATH': '/home/osboxes/isar-demo/isar/scripts:/home/osboxes/isar-demo/isar/bitbake/bin:/usr/sbin:/usr/bin:/sbin:/bin', 'LANGUAGE': 'en_US:en', 'SSH_AUTH_SOCK': '/run/user/1000/keyring/ssh', 'LANG': 'en_US.UTF-8', 'HISTFILE': '/home/osboxes/isar-demo/.kas_shell_history', 'TERM': 'xterm-256color', 'SHLVL': '2', 'BUILDDIR': '/home/osboxes/isar-demo/build', 'OLDPWD': '/home/osboxes/isar-demo/build', '_': '/home/osboxes/isar-demo/isar/bitbake/bin/bitbake'}, ['/home/osboxes/isar-demo/isar/bitbake/bin/bitbake', 'demo-image', '-v']]
+127487 00:30:21.547564 Base config valid
+127487 00:30:21.547903 Sending reply (None, None)
+127487 00:30:21.548040 Command Completed (socket: True)
+127487 00:30:21.556156 Running command ['getVariable', 'BBINCLUDELOGS']
+127487 00:30:21.556227 Sending reply ('yes', None)
+127487 00:30:21.556335 Command Completed (socket: True)
+127487 00:30:21.564505 Running command ['getVariable', 'BBINCLUDELOGS_LINES']
+127487 00:30:21.564544 Sending reply (None, None)
+127487 00:30:21.564621 Command Completed (socket: True)
+127487 00:30:21.578862 Running command ['getSetVariable', 'BB_CONSOLELOG']
+127487 00:30:21.578979 Sending reply (None, None)
+127487 00:30:21.579054 Command Completed (socket: True)
+127487 00:30:21.587033 Running command ['getSetVariable', 'BB_LOGCONFIG']
+127487 00:30:21.587108 Sending reply (None, None)
+127487 00:30:21.587197 Command Completed (socket: True)
+127487 00:30:21.588100 Running command ['getUIHandlerNum']
+127487 00:30:21.588123 Sending reply (1, None)
+127487 00:30:21.588193 Command Completed (socket: True)
+127487 00:30:21.588449 Running command ['setEventMask', 1, 19, {}, ['bb.runqueue.runQueueExitWait', 'bb.event.LogExecTTY', 'logging.LogRecord', 'bb.build.TaskFailed', 'bb.build.TaskBase', 'bb.event.ParseStarted', 'bb.event.ParseProgress', 'bb.event.ParseCompleted', 'bb.event.CacheLoadStarted', 'bb.event.CacheLoadProgress', 'bb.event.CacheLoadCompleted', 'bb.command.CommandFailed', 'bb.command.CommandExit', 'bb.command.CommandCompleted', 'bb.cooker.CookerExit', 'bb.event.MultipleProviders', 'bb.event.NoProvider', 'bb.runqueue.sceneQueueTaskStarted', 'bb.runqueue.runQueueTaskStarted', 'bb.runqueue.runQueueTaskFailed', 'bb.runqueue.sceneQueueTaskFailed', 'bb.event.BuildBase', 'bb.build.TaskStarted', 'bb.build.TaskSucceeded', 'bb.build.TaskFailedSilent', 'bb.build.TaskProgress', 'bb.event.ProcessStarted', 'bb.event.ProcessProgress', 'bb.event.ProcessFinished']]
+127487 00:30:21.588472 Sending reply (True, None)
+127487 00:30:21.588537 Command Completed (socket: True)
+127487 00:30:21.588806 Running command ['getVariable', 'BB_DEFAULT_TASK']
+127487 00:30:21.588840 Sending reply (None, None)
+127487 00:30:21.588899 Command Completed (socket: True)
+127487 00:30:21.589093 Running command ['setConfig', 'cmd', 'build']
+127487 00:30:21.589111 Sending reply (None, None)
+127487 00:30:21.589166 Command Completed (socket: True)
+127487 00:30:21.589365 Running command ['buildTargets', ['demo-image'], 'build']
+127487 00:30:21.589397 Registering idle function <bound method Command.runAsyncCommand of <bb.command.Command object at 0x7f1c804cc890>>
+127487 00:30:21.589402 Sending reply (True, None)
+127487 00:30:21.589455 Command Completed (socket: True)
+127487 00:30:21.680662 Parsing started
+127487 00:30:23.788558 Parse cache valid
+127487 00:30:24.148523 Removing idle function <bound method Command.runAsyncCommand of <bb.command.Command object at 0x7f1c804cc890>> at idleFinish
+127487 00:30:24.404090 Processing Client
+127487 00:30:24.404208 Disconnecting Client (socket: True)
+127487 00:30:24.406500 Parse cache invalidated
+127487 00:30:24.406518 No timeout, exiting.
+127487 00:30:24.507737 Exiting (socket: True)
+127487 00:30:24.514156 Exiting as we could obtain the lock
+sys:1: ResourceWarning: unclosed file <_io.TextIOWrapper name='/home/osboxes/isar-demo/bitbake-cookerdaemon.log' mode='a+' encoding='UTF-8'>
+8538 07:28:44.895270 --- Starting bitbake server pid 8538 at 2025-11-29 07:28:44.895249 ---
+8538 07:28:44.895913 Started bitbake server pid 8538
+8538 07:28:44.896049 Entering server connection loop
+8538 07:28:44.896061 Lockfile is: /home/osboxes/isar-demo/bitbake.lock
+Socket is /home/osboxes/isar-demo/bitbake.sock (True)
+8538 07:28:44.897939 Accepting [<socket.socket fd=6, family=1, type=1, proto=0, laddr=bitbake.sock>] ([])
+8538 07:28:44.898226 Processing Client
+8538 07:28:44.898257 Connecting Client
+8538 07:28:44.898414 Running command ['setFeatures', [2, 1]]
+8538 07:28:44.898434 Sending reply (None, None)
+8538 07:28:44.898513 Command Completed (socket: True)
+8538 07:28:44.899019 Running command ['updateConfig', {'halt': True, 'force': False, 'invalidate_stamp': None, 'dry_run': False, 'dump_signatures': [], 'extra_assume_provided': [], 'profile': False, 'prefile': [], 'postfile': [], 'server_timeout': None, 'nosetscene': False, 'setsceneonly': False, 'skipsetscene': False, 'runall': [], 'runonly': None, 'writeeventlog': None, 'build_verbose_shell': False, 'build_verbose_stdout': False, 'default_loglevel': 20, 'debug_domains': {}}, {'SHELL': '/bin/bash', 'TESTSUITEDIR': '/home/osboxes/isar-demo/isar/testsuite', 'BB_ENV_PASSTHROUGH_ADDITIONS': 'BITBAKEDIR SCRIPTSDIR TESTSUITEDIR http_proxy https_proxy ftp_proxy no_proxy GNUPGHOME CCACHE_DEBUG BB_NUMBER_THREADS PARALLEL_MAKE SSTATE_DIR SSTATE_MIRRORS DL_DIR TMPDIR', 'BITBAKEDIR': '/home/osboxes/isar-demo/isar/bitbake', 'PWD': '/home/osboxes/isar-demo', 'HOME': '/tmp/tmpp0_biecz', 'BBPATH': '/home/osboxes/isar-demo/build', 'SCRIPTSDIR': '/home/osboxes/isar-demo/isar/scripts', 'LC_ALL': 'en_US.UTF-8', 'PATH': '/home/osboxes/isar-demo/isar/scripts:/home/osboxes/isar-demo/isar/bitbake/bin:/usr/sbin:/usr/bin:/sbin:/bin', 'LANGUAGE': 'en_US:en', 'SSH_AUTH_SOCK': '/run/user/1000/keyring/ssh', 'LANG': 'en_US.UTF-8', 'HISTFILE': '/home/osboxes/isar-demo/.kas_shell_history', 'TERM': 'xterm-256color', 'SHLVL': '2', 'BUILDDIR': '/home/osboxes/isar-demo/build', 'OLDPWD': '/home/osboxes/isar-demo/build', '_': '/home/osboxes/isar-demo/isar/bitbake/bin/bitbake'}, ['/home/osboxes/isar-demo/isar/bitbake/bin/bitbake', 'gwr-image']]
+8538 07:28:45.939033 Base config valid
+8538 07:28:45.939371 Sending reply (None, None)
+8538 07:28:45.939494 Command Completed (socket: True)
+8538 07:28:45.949326 Running command ['getVariable', 'BBINCLUDELOGS']
+8538 07:28:45.949414 Sending reply ('yes', None)
+8538 07:28:45.949562 Command Completed (socket: True)
+8538 07:28:45.957644 Running command ['getVariable', 'BBINCLUDELOGS_LINES']
+8538 07:28:45.957702 Sending reply (None, None)
+8538 07:28:45.957806 Command Completed (socket: True)
+8538 07:28:45.966247 Running command ['getSetVariable', 'BB_CONSOLELOG']
+8538 07:28:45.966322 Sending reply (None, None)
+8538 07:28:45.966420 Command Completed (socket: True)
+8538 07:28:45.975986 Running command ['getSetVariable', 'BB_LOGCONFIG']
+8538 07:28:45.976055 Sending reply (None, None)
+8538 07:28:45.976160 Command Completed (socket: True)
+8538 07:28:45.980031 Running command ['getUIHandlerNum']
+8538 07:28:45.980064 Sending reply (1, None)
+8538 07:28:45.980142 Command Completed (socket: True)
+8538 07:28:45.980940 Running command ['setEventMask', 1, 20, {}, ['bb.runqueue.runQueueExitWait', 'bb.event.LogExecTTY', 'logging.LogRecord', 'bb.build.TaskFailed', 'bb.build.TaskBase', 'bb.event.ParseStarted', 'bb.event.ParseProgress', 'bb.event.ParseCompleted', 'bb.event.CacheLoadStarted', 'bb.event.CacheLoadProgress', 'bb.event.CacheLoadCompleted', 'bb.command.CommandFailed', 'bb.command.CommandExit', 'bb.command.CommandCompleted', 'bb.cooker.CookerExit', 'bb.event.MultipleProviders', 'bb.event.NoProvider', 'bb.runqueue.sceneQueueTaskStarted', 'bb.runqueue.runQueueTaskStarted', 'bb.runqueue.runQueueTaskFailed', 'bb.runqueue.sceneQueueTaskFailed', 'bb.event.BuildBase', 'bb.build.TaskStarted', 'bb.build.TaskSucceeded', 'bb.build.TaskFailedSilent', 'bb.build.TaskProgress', 'bb.event.ProcessStarted', 'bb.event.ProcessProgress', 'bb.event.ProcessFinished']]
+8538 07:28:45.980991 Sending reply (True, None)
+8538 07:28:45.981145 Command Completed (socket: True)
+8538 07:28:45.981450 Running command ['getVariable', 'BB_DEFAULT_TASK']
+8538 07:28:45.981488 Sending reply (None, None)
+8538 07:28:45.981567 Command Completed (socket: True)
+8538 07:28:45.981811 Running command ['setConfig', 'cmd', 'build']
+8538 07:28:45.981838 Sending reply (None, None)
+8538 07:28:45.981901 Command Completed (socket: True)
+8538 07:28:45.982102 Running command ['buildTargets', ['gwr-image'], 'build']
+8538 07:28:45.982134 Registering idle function <bound method Command.runAsyncCommand of <bb.command.Command object at 0x7f1fd8a3c910>>
+8538 07:28:45.982139 Sending reply (True, None)
+8538 07:28:45.982195 Command Completed (socket: True)
+8538 07:28:46.063041 Parsing started
+8538 07:28:48.243422 Parse cache valid
+8538 07:28:48.592583 Removing idle function <bound method Command.runAsyncCommand of <bb.command.Command object at 0x7f1fd8a3c910>> at idleFinish
+8538 07:28:48.865767 Processing Client
+8538 07:28:48.865875 Disconnecting Client (socket: True)
+8538 07:28:48.867638 Parse cache invalidated
+8538 07:28:48.867662 No timeout, exiting.
+8538 07:28:48.970456 Exiting (socket: True)
+8538 07:28:48.975858 Exiting as we could obtain the lock
+sys:1: ResourceWarning: unclosed file <_io.TextIOWrapper name='/home/osboxes/isar-demo/bitbake-cookerdaemon.log' mode='a+' encoding='UTF-8'>
+8635 07:29:13.464880 --- Starting bitbake server pid 8635 at 2025-11-29 07:29:13.464854 ---
+8635 07:29:13.465767 Started bitbake server pid 8635
+8635 07:29:13.465919 Entering server connection loop
+8635 07:29:13.465932 Lockfile is: /home/osboxes/isar-demo/bitbake.lock
+Socket is /home/osboxes/isar-demo/bitbake.sock (True)
+8635 07:29:13.466892 Accepting [<socket.socket fd=6, family=1, type=1, proto=0, laddr=bitbake.sock>] ([])
+8635 07:29:13.468067 Processing Client
+8635 07:29:13.468095 Connecting Client
+8635 07:29:13.468260 Running command ['setFeatures', [2, 1]]
+8635 07:29:13.468278 Sending reply (None, None)
+8635 07:29:13.468357 Command Completed (socket: True)
+8635 07:29:13.468753 Running command ['updateConfig', {'halt': True, 'force': False, 'invalidate_stamp': None, 'dry_run': False, 'dump_signatures': [], 'extra_assume_provided': [], 'profile': False, 'prefile': [], 'postfile': [], 'server_timeout': None, 'nosetscene': False, 'setsceneonly': False, 'skipsetscene': False, 'runall': [], 'runonly': None, 'writeeventlog': None, 'build_verbose_shell': False, 'build_verbose_stdout': False, 'default_loglevel': 20, 'debug_domains': {}}, {'SHELL': '/bin/bash', 'TESTSUITEDIR': '/home/osboxes/isar-demo/isar/testsuite', 'BB_ENV_PASSTHROUGH_ADDITIONS': 'BITBAKEDIR SCRIPTSDIR TESTSUITEDIR http_proxy https_proxy ftp_proxy no_proxy GNUPGHOME CCACHE_DEBUG BB_NUMBER_THREADS PARALLEL_MAKE SSTATE_DIR SSTATE_MIRRORS DL_DIR TMPDIR', 'BITBAKEDIR': '/home/osboxes/isar-demo/isar/bitbake', 'PWD': '/home/osboxes/isar-demo', 'HOME': '/tmp/tmpp0_biecz', 'BBPATH': '/home/osboxes/isar-demo/build', 'SCRIPTSDIR': '/home/osboxes/isar-demo/isar/scripts', 'LC_ALL': 'en_US.UTF-8', 'PATH': '/home/osboxes/isar-demo/isar/scripts:/home/osboxes/isar-demo/isar/bitbake/bin:/usr/sbin:/usr/bin:/sbin:/bin', 'LANGUAGE': 'en_US:en', 'SSH_AUTH_SOCK': '/run/user/1000/keyring/ssh', 'LANG': 'en_US.UTF-8', 'HISTFILE': '/home/osboxes/isar-demo/.kas_shell_history', 'TERM': 'xterm-256color', 'SHLVL': '2', 'BUILDDIR': '/home/osboxes/isar-demo/build', 'OLDPWD': '/home/osboxes/isar-demo/build', '_': '/home/osboxes/isar-demo/isar/bitbake/bin/bitbake'}, ['/home/osboxes/isar-demo/isar/bitbake/bin/bitbake', 'gwr-image']]
+8635 07:29:14.504473 Base config valid
+8635 07:29:14.504813 Sending reply (None, None)
+8635 07:29:14.505048 Command Completed (socket: True)
+8635 07:29:14.514306 Running command ['getVariable', 'BBINCLUDELOGS']
+8635 07:29:14.514375 Sending reply ('yes', None)
+8635 07:29:14.514494 Command Completed (socket: True)
+8635 07:29:14.522523 Running command ['getVariable', 'BBINCLUDELOGS_LINES']
+8635 07:29:14.522566 Sending reply (None, None)
+8635 07:29:14.522661 Command Completed (socket: True)
+8635 07:29:14.529296 Running command ['getSetVariable', 'BB_CONSOLELOG']
+8635 07:29:14.529359 Sending reply (None, None)
+8635 07:29:14.529432 Command Completed (socket: True)
+8635 07:29:14.537395 Running command ['getSetVariable', 'BB_LOGCONFIG']
+8635 07:29:14.537442 Sending reply (None, None)
+8635 07:29:14.537516 Command Completed (socket: True)
+8635 07:29:14.546470 Running command ['getUIHandlerNum']
+8635 07:29:14.546509 Sending reply (1, None)
+8635 07:29:14.546589 Command Completed (socket: True)
+8635 07:29:14.546828 Running command ['setEventMask', 1, 20, {}, ['bb.runqueue.runQueueExitWait', 'bb.event.LogExecTTY', 'logging.LogRecord', 'bb.build.TaskFailed', 'bb.build.TaskBase', 'bb.event.ParseStarted', 'bb.event.ParseProgress', 'bb.event.ParseCompleted', 'bb.event.CacheLoadStarted', 'bb.event.CacheLoadProgress', 'bb.event.CacheLoadCompleted', 'bb.command.CommandFailed', 'bb.command.CommandExit', 'bb.command.CommandCompleted', 'bb.cooker.CookerExit', 'bb.event.MultipleProviders', 'bb.event.NoProvider', 'bb.runqueue.sceneQueueTaskStarted', 'bb.runqueue.runQueueTaskStarted', 'bb.runqueue.runQueueTaskFailed', 'bb.runqueue.sceneQueueTaskFailed', 'bb.event.BuildBase', 'bb.build.TaskStarted', 'bb.build.TaskSucceeded', 'bb.build.TaskFailedSilent', 'bb.build.TaskProgress', 'bb.event.ProcessStarted', 'bb.event.ProcessProgress', 'bb.event.ProcessFinished']]
+8635 07:29:14.546853 Sending reply (True, None)
+8635 07:29:14.546919 Command Completed (socket: True)
+8635 07:29:14.547122 Running command ['getVariable', 'BB_DEFAULT_TASK']
+8635 07:29:14.547153 Sending reply (None, None)
+8635 07:29:14.547215 Command Completed (socket: True)
+8635 07:29:14.547405 Running command ['setConfig', 'cmd', 'build']
+8635 07:29:14.547425 Sending reply (None, None)
+8635 07:29:14.547481 Command Completed (socket: True)
+8635 07:29:14.547670 Running command ['buildTargets', ['gwr-image'], 'build']
+8635 07:29:14.547701 Registering idle function <bound method Command.runAsyncCommand of <bb.command.Command object at 0x7fbe2ec405d0>>
+8635 07:29:14.547705 Sending reply (True, None)
+8635 07:29:14.547761 Command Completed (socket: True)
+8635 07:29:14.567273 Parsing started
+8635 07:29:16.185136 Parse cache valid
+8635 07:29:16.463908 Removing idle function <bound method Command.runAsyncCommand of <bb.command.Command object at 0x7fbe2ec405d0>> at idleFinish
+8635 07:29:16.720919 Processing Client
+8635 07:29:16.721030 Disconnecting Client (socket: True)
+8635 07:29:16.722800 Parse cache invalidated
+8635 07:29:16.722821 No timeout, exiting.
+8635 07:29:16.823358 Exiting (socket: True)
+8635 07:29:16.823833 Exiting as we could obtain the lock
+sys:1: ResourceWarning: unclosed file <_io.TextIOWrapper name='/home/osboxes/isar-demo/bitbake-cookerdaemon.log' mode='a+' encoding='UTF-8'>
+8640 07:29:25.945303 --- Starting bitbake server pid 8640 at 2025-11-29 07:29:25.945284 ---
+8640 07:29:25.945898 Started bitbake server pid 8640
+8640 07:29:25.946055 Entering server connection loop
+8640 07:29:25.946067 Lockfile is: /home/osboxes/isar-demo/bitbake.lock
+Socket is /home/osboxes/isar-demo/bitbake.sock (True)
+8640 07:29:25.946927 Accepting [<socket.socket fd=6, family=1, type=1, proto=0, laddr=bitbake.sock>] ([])
+8640 07:29:25.947241 Processing Client
+8640 07:29:25.947266 Connecting Client
+8640 07:29:25.947427 Running command ['setFeatures', [2, 1]]
+8640 07:29:25.947447 Sending reply (None, None)
+8640 07:29:25.947528 Command Completed (socket: True)
+8640 07:29:25.947946 Running command ['updateConfig', {'halt': True, 'force': False, 'invalidate_stamp': None, 'dry_run': False, 'dump_signatures': [], 'extra_assume_provided': [], 'profile': False, 'prefile': [], 'postfile': [], 'server_timeout': None, 'nosetscene': False, 'setsceneonly': False, 'skipsetscene': False, 'runall': [], 'runonly': None, 'writeeventlog': None, 'build_verbose_shell': False, 'build_verbose_stdout': False, 'default_loglevel': 20, 'debug_domains': {}}, {'SHELL': '/bin/bash', 'TESTSUITEDIR': '/home/osboxes/isar-demo/isar/testsuite', 'BB_ENV_PASSTHROUGH_ADDITIONS': 'BITBAKEDIR SCRIPTSDIR TESTSUITEDIR http_proxy https_proxy ftp_proxy no_proxy GNUPGHOME CCACHE_DEBUG BB_NUMBER_THREADS PARALLEL_MAKE SSTATE_DIR SSTATE_MIRRORS DL_DIR TMPDIR', 'BITBAKEDIR': '/home/osboxes/isar-demo/isar/bitbake', 'PWD': '/home/osboxes/isar-demo', 'HOME': '/tmp/tmpp0_biecz', 'BBPATH': '/home/osboxes/isar-demo/build', 'SCRIPTSDIR': '/home/osboxes/isar-demo/isar/scripts', 'LC_ALL': 'en_US.UTF-8', 'PATH': '/home/osboxes/isar-demo/isar/scripts:/home/osboxes/isar-demo/isar/bitbake/bin:/usr/sbin:/usr/bin:/sbin:/bin', 'LANGUAGE': 'en_US:en', 'SSH_AUTH_SOCK': '/run/user/1000/keyring/ssh', 'LANG': 'en_US.UTF-8', 'HISTFILE': '/home/osboxes/isar-demo/.kas_shell_history', 'TERM': 'xterm-256color', 'SHLVL': '2', 'BUILDDIR': '/home/osboxes/isar-demo/build', 'OLDPWD': '/home/osboxes/isar-demo/build', '_': '/home/osboxes/isar-demo/isar/bitbake/bin/bitbake'}, ['/home/osboxes/isar-demo/isar/bitbake/bin/bitbake', 'demo-image']]
+8640 07:29:26.891861 Base config valid
+8640 07:29:26.892197 Sending reply (None, None)
+8640 07:29:26.892321 Command Completed (socket: True)
+8640 07:29:26.901820 Running command ['getVariable', 'BBINCLUDELOGS']
+8640 07:29:26.901878 Sending reply ('yes', None)
+8640 07:29:26.901928 Command Completed (socket: True)
+8640 07:29:26.909574 Running command ['getVariable', 'BBINCLUDELOGS_LINES']
+8640 07:29:26.909810 Sending reply (None, None)
+8640 07:29:26.910890 Command Completed (socket: True)
+8640 07:29:26.918986 Running command ['getSetVariable', 'BB_CONSOLELOG']
+8640 07:29:26.919127 Sending reply (None, None)
+8640 07:29:26.919213 Command Completed (socket: True)
+8640 07:29:26.925705 Running command ['getSetVariable', 'BB_LOGCONFIG']
+8640 07:29:26.925758 Sending reply (None, None)
+8640 07:29:26.925853 Command Completed (socket: True)
+8640 07:29:26.935493 Running command ['getUIHandlerNum']
+8640 07:29:26.935527 Sending reply (1, None)
+8640 07:29:26.935618 Command Completed (socket: True)
+8640 07:29:26.937813 Running command ['setEventMask', 1, 20, {}, ['bb.runqueue.runQueueExitWait', 'bb.event.LogExecTTY', 'logging.LogRecord', 'bb.build.TaskFailed', 'bb.build.TaskBase', 'bb.event.ParseStarted', 'bb.event.ParseProgress', 'bb.event.ParseCompleted', 'bb.event.CacheLoadStarted', 'bb.event.CacheLoadProgress', 'bb.event.CacheLoadCompleted', 'bb.command.CommandFailed', 'bb.command.CommandExit', 'bb.command.CommandCompleted', 'bb.cooker.CookerExit', 'bb.event.MultipleProviders', 'bb.event.NoProvider', 'bb.runqueue.sceneQueueTaskStarted', 'bb.runqueue.runQueueTaskStarted', 'bb.runqueue.runQueueTaskFailed', 'bb.runqueue.sceneQueueTaskFailed', 'bb.event.BuildBase', 'bb.build.TaskStarted', 'bb.build.TaskSucceeded', 'bb.build.TaskFailedSilent', 'bb.build.TaskProgress', 'bb.event.ProcessStarted', 'bb.event.ProcessProgress', 'bb.event.ProcessFinished']]
+8640 07:29:26.937843 Sending reply (True, None)
+8640 07:29:26.937919 Command Completed (socket: True)
+8640 07:29:26.938190 Running command ['getVariable', 'BB_DEFAULT_TASK']
+8640 07:29:26.938235 Sending reply (None, None)
+8640 07:29:26.938315 Command Completed (socket: True)
+8640 07:29:26.938522 Running command ['setConfig', 'cmd', 'build']
+8640 07:29:26.938546 Sending reply (None, None)
+8640 07:29:26.938612 Command Completed (socket: True)
+8640 07:29:26.938805 Running command ['buildTargets', ['demo-image'], 'build']
+8640 07:29:26.938839 Registering idle function <bound method Command.runAsyncCommand of <bb.command.Command object at 0x7fa19c557a10>>
+8640 07:29:26.938844 Sending reply (True, None)
+8640 07:29:26.938900 Command Completed (socket: True)
+8640 07:29:27.022996 Parsing started
+8640 07:29:28.665065 Parse cache valid
+8640 07:29:28.954872 Removing idle function <bound method Command.runAsyncCommand of <bb.command.Command object at 0x7fa19c557a10>> at idleFinish
+8640 07:29:29.216032 Processing Client
+8640 07:29:29.216155 Disconnecting Client (socket: True)
+8640 07:29:29.219161 Parse cache invalidated
+8640 07:29:29.219199 No timeout, exiting.
+8640 07:29:29.321979 Exiting (socket: True)
+8640 07:29:29.323198 Exiting as we could obtain the lock
+sys:1: ResourceWarning: unclosed file <_io.TextIOWrapper name='/home/osboxes/isar-demo/bitbake-cookerdaemon.log' mode='a+' encoding='UTF-8'>

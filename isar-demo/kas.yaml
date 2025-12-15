@@ -1,0 +1,52 @@
+# This software is a part of isar demo.
+# Copyright (c) Siemens AG, 2025
+#
+# SPDX-License-Identifier: MIT
+
+header:
+  version: 17
+
+build_system: isar
+
+machine: z19-arm64-jammy
+distro: ubuntu-jammy
+target: demo-image
+
+repos:
+  meta-gwr:
+    path: meta-gwr
+
+  meta-z19:
+    path: meta-z19
+
+  meta-demo:
+    path: meta-demo
+
+  meta-mplane:
+    path: meta-mplane
+
+  isar:
+    url: https://github.com/ilbers/isar.git
+    commit: 0f1df8f38e395dc82618a8fc62c1959bb7b89a5a
+    layers:
+      meta:
+      meta-isar:
+
+# kas will automatically add the layers from repos.*.layers and repos.*.path
+# to BBLAYERS, so we do NOT need a manual BBLAYERS += line here.
+
+local_conf_header:
+  isar-demo: |
+    IMAGE_FSTYPES = "ext4 tar"
+    ISAR_CROSS_COMPILE = "1"
+    IMAGE_INSTALL:append = " \
+      libyang \
+      libnetconf2 \
+      sysrepo \
+      sysrepo-data \
+      netopeer2 \
+      mplane-bin \
+      dhclient-hooks \
+      sshd-config \
+      mplane-start \
+    "
